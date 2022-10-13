@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const db = require('./database/db')
-// const routes = require('./routes/routes')
+const routes = require('./routes/routes')
 
 const app = express()
 
@@ -28,7 +28,7 @@ app.use(express.json())
 
 app.use('/api', routes)
 
-const port = proccess.env.PORT || 8080
+const port = process.env.PORT || 8080
 app.listen(port, () => {
   console.log('The server is running on port: ' + port)
 })
