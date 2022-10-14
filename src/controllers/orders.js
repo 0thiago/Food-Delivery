@@ -1,51 +1,52 @@
-const ProductsModel = require('../models/products')
+const OrdersModel = require('../models/orders')
 
 async function get(req, res) {
   const { id } = req.params
 
   const obj = id ? { _id: id } : null
 
-  const products = await ProductsModel.find(obj)
+  const orders = await OrdersModel.find(obj)
 
-  res.send(products)
+  res.send(orders)
 }
 
 async function post(req, res) {
   const {
-    name, 
-    description,
-    price,
+    clientID,
+    productID,
+    creationDate,
+    status,
   } = req.body
 
-  const product = new ProductsModel({
-    name,
-    description,
-    price,
+  const order = new OrdersModel({
+    clientID,
+    productID,
+    creationDate,
+    status,
   })
 
-  product.save()
+  order.save()
 
   res.send({
     message: 'success'
   })
+
+
 }
 
 async function put(req, res) {
   const { id } = req.params
-
-  const product = await ProductsModel.findOneAndUpdate({ _id: id }, req.body, { new: true})
+  const order = await OrdersModel.findOneAndUpdate({ _id: id}, req.body, { new: true })
 
   res.send({
     message: 'success',
-    product,
+    order,
   })
 }
 
 async function remove(req, res) {
   const { id } = req.params
-  
-  const remove = await ProductsModel.deleteOne({ _id: id })
-
+  const remove = await OrdersModel.deleteOne({ _id: id })
   const message = remove.deletedCount ? 'success' : 'error'
 
   res.send({
@@ -54,7 +55,7 @@ async function remove(req, res) {
 }
 
 module.exports = {
-  get,
+  get, 
   post,
   put,
   remove,
