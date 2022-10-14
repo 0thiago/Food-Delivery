@@ -8,4 +8,6 @@ router.post('/clients', ClientsController.post)
 
 router.put('/clients/:id', ClientsController.put)
 
+router.delete('/clients/:id', ClientsController.remove)
+
 module.exports = router
