@@ -1,14 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css">
-  <title>Home - Food Delivery</title>
+  <link rel="shortcut icon" href="/imgs/favicon-red.png" type="image/x-icon">
+  <title>Food Delivery - Home</title>
 </head>
+
 <body>
-  
+  <header class="header">
+    <div class="header__container">
+
+      <img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img">
+
+      <p>Food Delivery</p>
+
+      <img src="/imgs/burguer-menu-slim.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
+
+      <nav id="dropMenu" class="header__navmenu">
+        <ul class="header__navmenu-container">
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Home</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Menu</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Login</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Reviews</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="home">
+
+    <section class="home__header">
+      <div class="home__header-container">
+        <button class="see-our-products button">See here our full menu</button>
+      </div>
+
+    </section>
+
+    <section class="home__products">
+      <div id="salesSectionContainer" class="home__products-wrapper">
+        <!-- <button class="left-arrow">◀</button> -->
+
+        <!-- 
+          
+          <div class="slider">
+          <figure class="home__products-card">
+            <span class="sale-span">SALE!</span>
+            <h3>Product One</h3>
+            <div class="caption-img-box">
+              <img src="/imgs/plate-of-food.png" alt="">
+              <div class="caption-button-box">
+                <figcaption>Lorem ipsum dolor sit amet, amet, aaa lorem blems di acord consectetur adipisicing elit.
+                </figcaption>
+                <p>Only <strong>$ 19.00</strong> !</p>
+                <button id="orderButton" class="button">Order Now</button>
+              </div>
+            </div>
+          </figure>
+        </div>        
+      
+      -->
+
+        <!-- <button class="right-arrow"></button> -->
+
+      </div>
+    </section>
+
+    <section class="home__reviews">
+      <div class="home__reviews-container">
+        <div class="stars" role="text" aria-label="Rating: 5 stars">⭐⭐⭐⭐⭐</div>
+        <blockquote class="review">
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus placeat cumque maiores dol."
+        </blockquote>
+        <h4 class="user">User A.</h4>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+
+  </footer>
+
 </body>
-<script src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>
+
 </html>

@@ -1,0 +1,215 @@
+.home {
+  // padding: 50px 0px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__header {
+    background-image: url('../imgs/food-banner-1920x560.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
+    z-index: 1;
+
+    &-container {
+      position: relative;
+      margin-top: 70px;
+      min-height: 120px;
+      width: 100%;
+      text-align: center;
+
+      .see-our-products {
+        display: none;
+        background-color: white;
+        color: var(--primary-color);
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 0;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0 auto;
+
+      }
+    }
+
+    &-wrapper::-webkit-scrollbar {
+      //chrome
+      display: none;
+    }
+
+    &-wrapper {
+      display: flex; //carousel
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x;
+      scroll-behavior: smooth;
+      scrollbar-width: none; //firefox
+      cursor: grab;
+
+    }
+
+    &-slider {
+      scroll-snap-align: start;
+      user-select: none;
+
+      button {
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.42);
+        border-radius: 4px;
+        margin: 0 10px 10px;
+        padding: 5px;
+        min-width: 90px;
+        // box-shadow: 0 0 5px rgba(0, 0, 0, 0.468);
+      }
+    }
+  }
+
+  .home__products {
+    position: relative;
+
+    .left-arrow {
+      display: none;
+      position: absolute;
+      background-image: linear-gradient(to right, transparent 60%, grey);
+      left: 0;
+      top: 0;
+      bottom: 0;
+      padding: 2.5px;
+      z-index: 2;
+      text-align: center;
+      opacity: 0.3;
+      border: 0;
+
+      &:hover {
+        opacity: 1;
+      }
+
+    }
+
+    background-color: lightgray;
+    padding: 15px 0;
+    
+
+    &-wrapper::-webkit-scrollbar {
+      //chrome
+      display: none;
+    }
+
+    &-wrapper {
+      display: flex; //carousel
+      justify-content: start;
+      overflow-x: auto;
+      scroll-snap-type: x;
+      scroll-behavior: smooth;
+      scrollbar-width: none; //firefox
+      cursor: grab;
+
+      .slider {
+        scroll-snap-align: start;
+        user-select: none;
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.235);
+        margin: 0 10px;
+      }
+    }
+
+    &-card {
+      position: relative;
+      background-color: white;
+      min-width: 320px;
+      width: 100vw;
+      // max-height: 225px;
+      padding: 0 20px 10px;
+      border-radius: 5px;
+      overflow: hidden;
+
+      .sale-span {
+        position: absolute;
+        top: 20px;
+        left: -50px;
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: 700;
+        transform: rotate(320deg);
+        text-align: center;
+        width: 180px;
+        overflow: hidden;
+      }
+
+      h3 {
+        padding: 10px 10px 20px;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .caption-img-box {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 10px;
+
+        .caption-button-box {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          figcaption {
+            font-size: 14px;
+            hyphens: auto;
+
+          }
+
+          p {}
+
+          .button {
+
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 5px;
+            width: 100%;
+
+          }
+
+
+        }
+
+        img {
+          height: 50%;
+          width: 50%;
+          margin-right: 10px;
+          z-index: 0;
+        }
+
+      }
+    }
+  }
+
+
+  .home__reviews-container {
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.263);
+    z-index: 1;
+
+    .stars {
+      text-align: center;
+    }
+
+    .review {
+      padding-top: 5px;
+      text-align: center;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    .user {
+      text-align: right;
+    }
+  }
+
+}
