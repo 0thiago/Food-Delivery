@@ -73,18 +73,23 @@ function toggleDropMenu() {
   $burguerMenuButton.addEventListener("click", (e) => {
     if ($dropMenu.classList.contains('show')) {
       $dropMenu.classList.remove('show')
+      $burguerMenuButton.classList.remove('menu-button--active')
 
     } else {
       $dropMenu.classList.add('show')
+      $burguerMenuButton.classList.add('menu-button--active')
     }
   })
 
   document.body.addEventListener("click", (e) => {
     let dropMenu = $dropMenu
+    let btnMenu = $burguerMenuButton
     let target = e.target
 
     if (!target.classList.contains('menuItem') && !target.classList.contains('header__burguer-menu') && dropMenu.classList.contains('show')) {
       dropMenu.classList.remove('show')
+      btnMenu.classList.remove('menu-button--active')
+
     }
   })
 }

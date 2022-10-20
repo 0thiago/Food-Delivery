@@ -33,54 +33,49 @@
 
   </header>
 
-  <main class="home">
+  <main class="menu">
 
-    <section class="home__header">
-      <div class="home__header-container">
+    <section class="menu__header">
+      <div class="menu__header-container">
       </div>
     </section>
 
-    <section class="home__products">
+
+    <section class="menu__products-type">
       <img class="left-arrow" src="/imgs/left-arrow-40x40-red.png" alt="left arrow">
       <img class="right-arrow" src="/imgs/right-arrow-40x40-red.png" alt="right arrow">
-      <div id="salesSectionContainer" class="home__products-wrapper">
-        <!-- 
-          
-          <div class="slider">
-          <figure class="home__products-card">
-            <span class="sale-span">SALE!</span>
-            <h3>Product One</h3>
-            <div class="caption-img-box">
-              <img src="/imgs/plate-of-food.png" alt="">
-              <div class="caption-button-box">
-                <figcaption>Lorem ipsum dolor sit amet, amet, aaa lorem blems di acord consectetur adipisicing elit.
-                </figcaption>
-                <p>Only <strong>$ 19.00</strong> !</p>
-                <button id="orderButton" class="button">Order Now</button>
-              </div>
-            </div>
-          </figure>
-        </div>        
-      
-      -->
 
-        <!-- <button class="right-arrow"></button> -->
+      <p>Choose a type:</p>
+      <div class="menu__products-type-wrapper">
+
+        <div id="typeOneButton" class="slider"><button class="menu__types button" data-type="1">Type One</button></div>
+
+        <div id="typeTwoButton" class="slider"><button class="menu__types button" data-type="2">This is type 2</button>
+        </div>
+
+        <div id="typeThreeButton" class="slider"><button class="menu__types button" data-type="3">Type Three</button>
+        </div>
+
+        <div id="typeFourButton" class="slider"><button class="menu__types button" data-type="4">Type Four</button>
+        </div>
 
       </div>
+
     </section>
 
-    <section class="home__reviews">
-      <div class="home__reviews-container">
-        <div class="stars" role="text" aria-label="Rating: 5 stars">⭐⭐⭐⭐⭐</div>
-        <blockquote class="review">
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus placeat cumque maiores dol."
-        </blockquote>
-        <h4 class="user">User A.</h4>
+    <section class="menu__products">
+
+      <div class="loading">        
+        <img id="loadingImg" class="loading-gif" src="/imgs/loading-circle-red-200x200.gif" alt="loading">
+      </div>
+
+      <div id="productsContainer" class="menu__products-container">
+
       </div>
     </section>
 
   </main>
 </body>
-<script type="module" src="js/home.js"></script>
+<script type="module" src="js/menu.js"></script>
 
 </html>

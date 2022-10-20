@@ -1,0 +1,150 @@
+.menu {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__header {
+    background-image: url('../imgs/banner-menu-1920x560.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
+    z-index: 1;
+
+    &-container {
+      position: relative;
+      margin-top: 70px;
+      min-height: 120px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__products-type {
+    position: relative;
+    background-color: white;
+    padding: 20px 20px 0px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
+
+    .left-arrow {
+      position: absolute;
+      top: 83px;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      opacity: 0.5;
+    }
+
+    .right-arrow {
+      position: absolute;
+      top: 83px;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      opacity: 0.5;
+    }
+
+    p {
+      text-align: center;
+      padding: 10px;
+      font-weight: 500;
+    }
+
+    &-wrapper::-webkit-scrollbar {
+      //chrome
+      display: none;
+    }
+
+    &-wrapper {
+      display: flex; //carousel
+      justify-content: start;
+      overflow-x: auto;
+      scroll-snap-type: x;
+      scroll-behavior: smooth;
+      scrollbar-width: none; //firefox
+      padding: 20px 0px;
+      cursor: grab;
+
+      .slider {
+        scroll-snap-align: start;
+        user-select: none;
+        margin: 0 10px;
+
+        button {
+          background-color: var(--primary-color);
+          color: white;
+          min-width: max-content;
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+
+  &__products {
+    position: relative;
+    padding: 20px;
+    text-align: center;   
+
+    .loading-gif {
+      display: none;
+      position: absolute;      
+      top: 75%;      
+      left: 0;
+      right: 0;
+      margin: 20px auto;
+      width: 40%;
+      max-width: 180px;
+      z-index: 5;
+      border-radius: 50%;
+    }
+
+
+
+    &-container {
+
+
+      figure {
+        // background-image: url('/imgs/card-bg-550x1080.png');
+        // background-position: center;
+        // background-repeat: no-repeat;
+        // background-size: 100% 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        padding: 20px;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.404);
+
+        h3 {
+          text-align: center;
+          padding: 10px;
+        }
+
+        img {
+          width: 80%;
+        }
+
+        figcaption {
+          padding: 10px;
+          hyphens: auto;
+          text-align: justify;
+        }
+
+        p {
+          font-weight: 700;
+          padding: 10px 0;
+        }
+
+        button {
+          width: 80%;
+          padding: 10px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

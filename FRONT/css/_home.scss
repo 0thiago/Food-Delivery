@@ -19,81 +19,33 @@
       min-height: 120px;
       width: 100%;
       text-align: center;
-
-      .see-our-products {
-        display: none;
-        background-color: white;
-        color: var(--primary-color);
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        bottom: 0;
-        padding: 5px 10px;
-        text-transform: uppercase;
-        font-weight: 700;
-        margin: 0 auto;
-
-      }
-    }
-
-    &-wrapper::-webkit-scrollbar {
-      //chrome
-      display: none;
-    }
-
-    &-wrapper {
-      display: flex; //carousel
-      justify-content: flex-start;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      scroll-snap-type: x;
-      scroll-behavior: smooth;
-      scrollbar-width: none; //firefox
-      cursor: grab;
-
-    }
-
-    &-slider {
-      scroll-snap-align: start;
-      user-select: none;
-
-      button {
-        background-color: white;
-        border: 1px solid rgba(0, 0, 0, 0.42);
-        border-radius: 4px;
-        margin: 0 10px 10px;
-        padding: 5px;
-        min-width: 90px;
-        // box-shadow: 0 0 5px rgba(0, 0, 0, 0.468);
-      }
     }
   }
 
   .home__products {
     position: relative;
-
-    .left-arrow {
-      display: none;
-      position: absolute;
-      background-image: linear-gradient(to right, transparent 60%, grey);
-      left: 0;
-      top: 0;
-      bottom: 0;
-      padding: 2.5px;
-      z-index: 2;
-      text-align: center;
-      opacity: 0.3;
-      border: 0;
-
-      &:hover {
-        opacity: 1;
-      }
-
-    }
-
     background-color: lightgray;
     padding: 15px 0;
-    
+
+    .left-arrow {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 20px;
+      height: 40px;
+      opacity: 0.5;
+      z-index: 5;
+    }
+
+    .right-arrow {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 20px;
+      height: 40px;
+      opacity: 0.5;
+      z-index: 5;
+    }
 
     &-wrapper::-webkit-scrollbar {
       //chrome
@@ -123,7 +75,7 @@
       min-width: 320px;
       width: 100vw;
       // max-height: 225px;
-      padding: 0 20px 10px;
+      padding: 10px 20px 10px;
       border-radius: 5px;
       overflow: hidden;
 
