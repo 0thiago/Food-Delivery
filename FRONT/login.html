@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="/imgs/favicon-red.png" type="image/x-icon">
+  <title>Food Delivery - Home</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+
+      <img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img">
+
+      <p>Food Delivery</p>
+
+      <img src="/imgs/burguer-menu-slim.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
+
+      <nav id="dropMenu" class="header__navmenu">
+        <ul class="header__navmenu-container">
+          <li class="header__navmenu-item"><a class="menuItem" href="index.html">Home</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="menu.html">Menu</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="login.html">Login</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="reviews.html">Reviews</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="login">
+
+    <section class="login__header">
+      <div class="login__header-container">
+      </div>
+    </section>
+
+    <section class="login__auth">
+
+      <div class="login__auth-container">
+
+        <h3>Login</h3>
+        <p>First time here? <a href="/register.html">Create an account</a></p>
+        <span>Username or Password incorrect!</span>
+        
+        <form id="loginForm" action="/clients" method="POST" class="login__form">
+
+          <div class="username">
+            <label for="username">Username:</label>
+            <div class="username-input-container">
+              <span>invalid username</span>
+              <input type="text" name="username" id="username">
+            </div>
+          </div>
+
+          <div class="password">
+            <label for="password">Password:</label>
+            <div class="password-input-container">
+              <span>invalid password</span>
+              <input type="password" name="password" id="password">
+            </div>
+          </div>
+
+          <button id="loginButton" type="submit" class="button">Login</button>      
+
+        </form>
+
+        <p><a href="#">I forgot my username/password</a></p>
+      </div>
+      
+
+    </section>
+
+  </main>
+</body>
+<script type="module" src="js/login.js"></script>
+
+</html>

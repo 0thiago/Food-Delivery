@@ -19,7 +19,8 @@
 
   &:hover {
     cursor: pointer;
-    filter: brightness(1.2)
+    filter: brightness(1.2);
+    user-select: none;
   }
 
   &:active {

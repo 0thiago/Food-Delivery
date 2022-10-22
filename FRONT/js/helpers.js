@@ -94,8 +94,85 @@ function toggleDropMenu() {
   })
 }
 
+function validateUsername(username) {  
+  const regex = /^[a-zA-Z ]{6,30}$/
+
+  if (regex.test(username) === false){
+    return false
+  } else {
+    return true
+  }
+}
+
+function validateEmail(email) {  
+  const regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
+
+  if (regex.test(email) === false){
+    return false
+  } else {
+    return true
+  }
+}
+
+function validateCpf(cpf) {  
+  const regex = /^(\d{3})\.?(\d{3})\.?(\d{3})\-?(\d{2}$)$|^(\d{2})\.?(\d{3})\.?(\d{3})\/?([0-1]{4})\-?(\d{2})$/
+
+  if (regex.test(cpf) === false){
+    return false
+  } else {
+    return true
+  }
+}
+
+function validatePassword(password) {  
+  const regex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
+
+  if (regex.test(password) === false){
+    return false
+  } else {
+    return true
+  }
+}
+
+function authLogin(username, password) {
+  let hasError = false
+
+    if (!validateUsername(username.value)) {
+      hasError = true
+      username.style.borderColor = 'red'
+      username.previousElementSibling.style.opacity = '1'
+
+    } else {
+      username.style.borderColor = ''
+      username.previousElementSibling.style.opacity = '0'
+    }
+
+    if (!validatePassword(password.value)) {
+      hasError = true
+      password.style.borderColor = 'red'
+      password.previousElementSibling.style.opacity = '1'
+
+    } else {
+      password.style.borderColor = ''
+      password.previousElementSibling.style.opacity = '0'
+    }
+
+    if (hasError) {
+      return false
+    } else {
+      return true
+    }
+
+  
+}
+
 export { 
   productsCarousel, 
   getSalesProducts,
   toggleDropMenu,
+  validateUsername,
+  validateEmail,
+  validateCpf,
+  validatePassword,
+  authLogin,
  }

@@ -1,0 +1,139 @@
+.login {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__header {
+    background-image: url('../imgs/banner-login-1920x560.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
+    z-index: 1;
+
+    &-container {
+      position: relative;
+      margin-top: 70px;
+      min-height: 120px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__auth {
+    &-container {
+      min-height: 220px;
+      padding: 20px 10px;
+      margin: 20px;
+      border-radius: 4px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: unset;
+      flex-direction: column;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.441);
+
+      h3 {
+        text-align: center;
+      }
+
+      p {
+        
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      &>span {
+        display: none;
+        margin: 0 auto;
+        width: fit-content;
+        text-align: center;
+        color: red;
+        border-bottom: 1px solid red;
+      }
+
+      .login__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 260px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+
+        .username {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 0.5rem;
+
+          &-input-container {
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+
+            input {
+              min-height: 25px;
+              text-indent: 10px;
+            }
+
+            span {
+              text-align: center;
+              opacity: 0;
+              color: red;
+              font-size: 12px;
+            }
+          }
+        }
+
+        .password {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          // gap: 0.5rem;
+
+          &-input-container {
+            display: flex;
+            flex-direction: column;
+            height: 50px;
+
+            input {
+              min-height: 25px;
+              text-indent: 10px;
+            }
+
+            span {
+              text-align: center;
+              opacity: 0;
+              color: red;
+              font-size: 12px;
+            }
+          }
+        }
+
+        button {
+          padding: 10px;
+          margin-top: 10px;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+      }
+
+      .password-rules {
+        font-weight: 700;
+        text-indent: 30px;
+        font-size: 14px;
+        padding: 10px;        
+        list-style: inside;
+        list-style-type: ' → ';
+        
+        li {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
