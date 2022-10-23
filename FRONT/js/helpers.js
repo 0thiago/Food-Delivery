@@ -104,6 +104,16 @@ function validateUsername(username) {
   }
 }
 
+function validateName(Name) {  
+  const regex = /^[a-zA-Z ]{6,30}$/
+
+  if (regex.test(Name) === false){
+    return false
+  } else {
+    return true
+  }
+}
+
 function validateEmail(email) {  
   const regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
 
@@ -166,13 +176,74 @@ function authLogin(username, password) {
   
 }
 
+function validateRegisterData(username, Name, email, password) {
+  let hasError = false
+
+    if (!validateUsername(username.value)) {
+      hasError = true
+      username.style.borderColor = 'red'
+      username.previousElementSibling.style.opacity = '1'
+
+    } else {
+      username.style.borderColor = ''
+      username.previousElementSibling.style.opacity = '0'
+    }
+
+    if (!validateName(Name.value)) {
+      hasError = true
+      Name.style.borderColor = 'red'
+      Name.previousElementSibling.style.opacity = '1'
+
+    } else {
+      Name.style.borderColor = ''
+      Name.previousElementSibling.style.opacity = '0'
+    }
+
+    if (!validateEmail(email.value)) {
+      hasError = true
+      email.style.borderColor = 'red'
+      email.previousElementSibling.style.opacity = '1'
+
+    } else {
+      email.style.borderColor = ''
+      email.previousElementSibling.style.opacity = '0'
+    }
+
+    if (!validatePassword(password.value)) {
+      hasError = true
+      password.style.borderColor = 'red'
+      password.previousElementSibling.style.opacity = '1'
+
+    } else {
+      password.style.borderColor = ''
+      password.previousElementSibling.style.opacity = '0'
+    }    
+
+    if (password.value !== confirmPassword.value) {
+      hasError = true
+      confirmPassword.style.borderColor = 'red'
+      confirmPassword.previousElementSibling.style.opacity = '1'
+    } else {
+      confirmPassword.style.borderColor = ''
+      confirmPassword.previousElementSibling.style.opacity = '0'
+    }
+
+    if (hasError) {
+      return false
+    } else {
+      return true
+    }  
+}
+
 export { 
   productsCarousel, 
   getSalesProducts,
   toggleDropMenu,
   validateUsername,
+  validateName,
   validateEmail,
   validateCpf,
   validatePassword,
   authLogin,
+  validateRegisterData,
  }

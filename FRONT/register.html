@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="/imgs/favicon-red.png" type="image/x-icon">
+  <title>Food Delivery - Login</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+
+      <img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img">
+
+      <p>Food Delivery</p>
+
+      <div class="header__chart"><p>10</p></div>
+
+      <img src="/imgs/burguer-menu-slim.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
+
+      <nav id="dropMenu" class="header__navmenu">
+        <ul class="header__navmenu-container">
+          <li class="header__navmenu-item"><a class="menuItem" href="index.html">Home</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="menu.html">Menu</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="login.html">Login</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="reviews.html">Reviews</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="register">
+
+    <section class="register__header">
+      <div class="register__header-container">
+      </div>
+    </section>
+
+    <section class="register__user-data">
+
+      <div class="register__user-data-container">
+
+        <h3>Register</h3>
+        
+        <div>
+          Username or Password incorrect!
+          <img src="/imgs/loading-circle-red-200x200.gif" alt="">
+        </div>
+        
+        <form id="registerForm" action="" class="register__form">
+
+          <div class="username">
+            <label for="username">Username:</label>
+            <div class="username-input-container">
+              <span>invalid username</span>
+              <input type="text" name="username" id="username" required>
+            </div>
+          </div>
+
+          <div class="name">
+            <label for="name">Name:</label>
+            <div class="name-input-container">
+              <span>invalid name</span>
+              <input type="text" name="name" id="name" required>
+            </div>
+          </div>
+
+          <div class="email">
+            <label for="email">E-mail:</label>
+            <div class="email-input-container">
+              <span>invalid e-mail</span>
+              <input type="email" name="email" id="email" required>
+            </div>
+          </div>
+
+          <div class="phone">
+            <label for="phone">Phone:</label>
+            <div class="phone-input-container">
+              <span>invalid phone</span>
+              <input type="tel" name="phone" id="phone">
+            </div>
+          </div>
+
+          <div class="address">
+            <label for="address">Address:</label>
+            <div class="address-input-container">
+              <span>invalid address</span>
+              <input type="address" name="address" id="address" required>
+            </div>
+          </div>
+
+          <hr class="break-row-password">
+
+          <div class="password">
+            <label for="password">Password*:</label>
+            <div class="password-input-container">
+              <span>invalid password</span>
+              <input type="password" name="password" id="password" required>
+            </div>
+          </div>
+
+          <div class="confirm-password">
+            <label for="confirm-password">Confirm Password:</label>
+            <div class="confirm-password-input-container">
+              <span>doesn't match with password</span>
+              <input type="password" name="confirmPassword" id="confirmPassword" required>
+            </div>
+          </div>
+
+          <button id="registerButton" type="submit" class="button">Register</button>      
+
+        </form>
+
+        <ul class="password-rules">*Password Rules:
+          <li>Minimum 6 characteres</li>
+          <li>At least 1 uppercase letter</li>
+          <li>At least 1 lowercase letter</li>
+          <li>No spaces</li>
+        </ul>
+
+      </div> 
+
+    </section>
+
+  </main>
+</body>
+<script type="module" src="js/register.js"></script>
+
+</html>

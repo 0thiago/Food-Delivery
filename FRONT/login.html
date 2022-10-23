@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" href="/imgs/favicon-red.png" type="image/x-icon">
-  <title>Food Delivery - Home</title>
+  <title>Food Delivery - Login</title>
 </head>
 
 <body>
@@ -17,6 +17,8 @@
       <img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img">
 
       <p>Food Delivery</p>
+
+      <div class="header__chart"><p>10</p></div>
 
       <img src="/imgs/burguer-menu-slim.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
 
@@ -46,9 +48,12 @@
 
         <h3>Login</h3>
         <p>First time here? <a href="/register.html">Create an account</a></p>
-        <span>Username or Password incorrect!</span>
+        <div>
+          Username or Password incorrect!
+          <img src="/imgs/loading-circle-red-200x200.gif" alt="">
+        </div>
         
-        <form id="loginForm" action="/clients" method="POST" class="login__form">
+        <form id="loginForm" action="" class="login__form">
 
           <div class="username">
             <label for="username">Username:</label>

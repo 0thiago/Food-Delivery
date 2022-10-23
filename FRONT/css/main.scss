@@ -20,8 +20,7 @@ body {
   background-color: lightgray;
 }
 
-.header {
-  
+.header {  
   position: fixed;
   top: 0;
   z-index: 5;
@@ -47,8 +46,26 @@ body {
   }
 
   p {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
+  }
+
+  &__chart {
+    position: absolute;
+    background-image: url('/imgs/cart-100x100.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    right: 15%;
+    
+    
+    &>p {
+      font-size: 10px;
+      padding: 2px 7px;
+      font-weight: 700;
+    }
   }
 
   &__burguer-menu {
@@ -117,3 +134,4 @@ body {
 @import 'home';
 @import 'menu';
 @import 'login';
+@import 'register';
