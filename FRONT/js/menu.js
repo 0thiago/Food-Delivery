@@ -1,5 +1,5 @@
 import {
-  toggleDropMenu,
+  toggleDropMenu, API_URL
 } from './helpers.js'
 
 toggleDropMenu()
@@ -23,7 +23,7 @@ const menuPageProductsBuilder = {
     this.$typeThreeButton = document.querySelector('#typeThreeButton')
     this.$typeFourButton = document.querySelector('#typeFourButton')
     this.$productsContainer = document.querySelector('#productsContainer')
-    this.API_URL = 'http://192.168.1.5:8080/api/products'
+    this.API_URL = `${API_URL}/api/products`
     this.$loadingImg = document.querySelector('#loadingImg')
 
   },

@@ -1,5 +1,5 @@
 import {
-  toggleDropMenu, validateRegisterData,
+  toggleDropMenu, validateRegisterData, API_URL,
 } from './helpers.js'
 
 toggleDropMenu()
@@ -28,8 +28,6 @@ validateFormRegister()
 $form.onsubmit = function(event) {
   event.preventDefault()
 
-  const API_URL = 'http://192.168.1.5:8080/api/clients'
-
   const username = document.forms['registerForm'].username.value
   const name = document.forms['registerForm'].name.value
   const email = document.forms['registerForm'].email.value
@@ -50,7 +48,7 @@ $form.onsubmit = function(event) {
     headers: { 'Content-Type': 'application/json '}
   }
 
-  fetch(API_URL, header).then(response => {
+  fetch(`${API_URL}/api/clients`, header).then(response => {
     response.json().then(data => {
       if (data.message === 'success') {
         alert('User registered successfully! Login now.')

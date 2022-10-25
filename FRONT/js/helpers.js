@@ -1,3 +1,8 @@
+const API_URL = 'http://192.168.1.5:8080'
+
+//trabalho: http://192.168.3.173:8080
+//casa: http://192.168.1.5:8080 
+
 function productsCarousel() {
   const $wrapper = document.querySelector('.home__products-wrapper')
 
@@ -30,16 +35,17 @@ function productsCarousel() {
 }
 
 function getSalesProducts() {
-  const API_URL = 'http://192.168.1.5:8080/api/products'
   const salesSectionContainer = document.querySelector('#salesSectionContainer')
+  let $orderButton = ''
 
-  fetch(API_URL).then(response => {
-    response.json().then(data => {
+  fetch(`${API_URL}/api/products`)
+    .then(response => {
+      response.json().then(data => {
 
-      data = data.filter(products => products.promo === true)
+        data = data.filter(products => products.promo === true)
 
-      const salesSectionHtml = data.map(products => `
-      <div class="slider">
+        const salesSectionHtml = data.map(products => `
+        <div class="slider">
           <figure class="home__products-card">
             <span class="sale-span">SALE!</span>
             <h3>${products.name}</h3>
@@ -49,17 +55,35 @@ function getSalesProducts() {
                 <figcaption>${products.description}
                 </figcaption>
                 <p>Only <strong>$ ${products.price}</strong> !</p>
-                <button id="orderButton" class="button">Order Now</button>
+                <button id="orderButton" class="button" data-id="${products._id}">Order Now</button>
               </div>
             </div>
           </figure>
         </div>      
       `)
 
-      salesSectionContainer.innerHTML = salesSectionHtml
+        salesSectionContainer.innerHTML = salesSectionHtml
 
-    })
-  }).catch(error => console.log(Error))
+        $orderButton = document.querySelectorAll('.button')        
+        
+        $orderButton.forEach((button) => {
+          button.onclick = (button) => {
+            const id = button.target.dataset['id']
+            fetch(`${API_URL}/api/order/${id}`).then(response => {
+              response.json().then(data => {                
+                const productFromHomeID = id
+                const productIDJSON = JSON.stringify(productFromHomeID)
+                localStorage.setItem('productFromHomeID', productIDJSON)
+
+                window.location.href = "/order.html"
+          
+              
+              })
+            }).catch(error => console.log(error))
+          }
+        })
+      })
+    }).catch(error => console.log(Error))
 }
 
 function toggleDropMenu() {
@@ -94,50 +118,50 @@ function toggleDropMenu() {
   })
 }
 
-function validateUsername(username) {  
+function validateUsername(username) {
   const regex = /^[a-zA-Z ]{6,30}$/
 
-  if (regex.test(username) === false){
+  if (regex.test(username) === false) {
     return false
   } else {
     return true
   }
 }
 
-function validateName(Name) {  
+function validateName(Name) {
   const regex = /^[a-zA-Z ]{6,30}$/
 
-  if (regex.test(Name) === false){
+  if (regex.test(Name) === false) {
     return false
   } else {
     return true
   }
 }
 
-function validateEmail(email) {  
+function validateEmail(email) {
   const regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
 
-  if (regex.test(email) === false){
+  if (regex.test(email) === false) {
     return false
   } else {
     return true
   }
 }
 
-function validateCpf(cpf) {  
+function validateCpf(cpf) {
   const regex = /^(\d{3})\.?(\d{3})\.?(\d{3})\-?(\d{2}$)$|^(\d{2})\.?(\d{3})\.?(\d{3})\/?([0-1]{4})\-?(\d{2})$/
 
-  if (regex.test(cpf) === false){
+  if (regex.test(cpf) === false) {
     return false
   } else {
     return true
   }
 }
 
-function validatePassword(password) {  
+function validatePassword(password) {
   const regex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
 
-  if (regex.test(password) === false){
+  if (regex.test(password) === false) {
     return false
   } else {
     return true
@@ -147,96 +171,96 @@ function validatePassword(password) {
 function authLogin(username, password) {
   let hasError = false
 
-    if (!validateUsername(username.value)) {
-      hasError = true
-      username.style.borderColor = 'red'
-      username.previousElementSibling.style.opacity = '1'
+  if (!validateUsername(username.value)) {
+    hasError = true
+    username.style.borderColor = 'red'
+    username.previousElementSibling.style.opacity = '1'
 
-    } else {
-      username.style.borderColor = ''
-      username.previousElementSibling.style.opacity = '0'
-    }
+  } else {
+    username.style.borderColor = ''
+    username.previousElementSibling.style.opacity = '0'
+  }
 
-    if (!validatePassword(password.value)) {
-      hasError = true
-      password.style.borderColor = 'red'
-      password.previousElementSibling.style.opacity = '1'
+  if (!validatePassword(password.value)) {
+    hasError = true
+    password.style.borderColor = 'red'
+    password.previousElementSibling.style.opacity = '1'
 
-    } else {
-      password.style.borderColor = ''
-      password.previousElementSibling.style.opacity = '0'
-    }
+  } else {
+    password.style.borderColor = ''
+    password.previousElementSibling.style.opacity = '0'
+  }
 
-    if (hasError) {
-      return false
-    } else {
-      return true
-    }
+  if (hasError) {
+    return false
+  } else {
+    return true
+  }
 
-  
+
 }
 
 function validateRegisterData(username, Name, email, password) {
   let hasError = false
 
-    if (!validateUsername(username.value)) {
-      hasError = true
-      username.style.borderColor = 'red'
-      username.previousElementSibling.style.opacity = '1'
+  if (!validateUsername(username.value)) {
+    hasError = true
+    username.style.borderColor = 'red'
+    username.previousElementSibling.style.opacity = '1'
 
-    } else {
-      username.style.borderColor = ''
-      username.previousElementSibling.style.opacity = '0'
-    }
+  } else {
+    username.style.borderColor = ''
+    username.previousElementSibling.style.opacity = '0'
+  }
 
-    if (!validateName(Name.value)) {
-      hasError = true
-      Name.style.borderColor = 'red'
-      Name.previousElementSibling.style.opacity = '1'
+  if (!validateName(Name.value)) {
+    hasError = true
+    Name.style.borderColor = 'red'
+    Name.previousElementSibling.style.opacity = '1'
 
-    } else {
-      Name.style.borderColor = ''
-      Name.previousElementSibling.style.opacity = '0'
-    }
+  } else {
+    Name.style.borderColor = ''
+    Name.previousElementSibling.style.opacity = '0'
+  }
 
-    if (!validateEmail(email.value)) {
-      hasError = true
-      email.style.borderColor = 'red'
-      email.previousElementSibling.style.opacity = '1'
+  if (!validateEmail(email.value)) {
+    hasError = true
+    email.style.borderColor = 'red'
+    email.previousElementSibling.style.opacity = '1'
 
-    } else {
-      email.style.borderColor = ''
-      email.previousElementSibling.style.opacity = '0'
-    }
+  } else {
+    email.style.borderColor = ''
+    email.previousElementSibling.style.opacity = '0'
+  }
 
-    if (!validatePassword(password.value)) {
-      hasError = true
-      password.style.borderColor = 'red'
-      password.previousElementSibling.style.opacity = '1'
+  if (!validatePassword(password.value)) {
+    hasError = true
+    password.style.borderColor = 'red'
+    password.previousElementSibling.style.opacity = '1'
 
-    } else {
-      password.style.borderColor = ''
-      password.previousElementSibling.style.opacity = '0'
-    }    
+  } else {
+    password.style.borderColor = ''
+    password.previousElementSibling.style.opacity = '0'
+  }
 
-    if (password.value !== confirmPassword.value) {
-      hasError = true
-      confirmPassword.style.borderColor = 'red'
-      confirmPassword.previousElementSibling.style.opacity = '1'
-    } else {
-      confirmPassword.style.borderColor = ''
-      confirmPassword.previousElementSibling.style.opacity = '0'
-    }
+  if (password.value !== confirmPassword.value) {
+    hasError = true
+    confirmPassword.style.borderColor = 'red'
+    confirmPassword.previousElementSibling.style.opacity = '1'
+  } else {
+    confirmPassword.style.borderColor = ''
+    confirmPassword.previousElementSibling.style.opacity = '0'
+  }
 
-    if (hasError) {
-      return false
-    } else {
-      return true
-    }  
+  if (hasError) {
+    return false
+  } else {
+    return true
+  }
 }
 
-export { 
-  productsCarousel, 
+export {
+  productsCarousel,
   getSalesProducts,
   toggleDropMenu,
   validateUsername,
@@ -246,4 +270,5 @@ export {
   validatePassword,
   authLogin,
   validateRegisterData,
- }
+  API_URL,
+}

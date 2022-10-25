@@ -7,3 +7,10 @@ import {
 productsCarousel()
 getSalesProducts()
 toggleDropMenu()
+
+
+  // const btnOrder = document.querySelector('#orderButton')
+  // console.log(btnOrder)
+
+
+

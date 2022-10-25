@@ -8,14 +8,14 @@
 @import 'variables';
 @import 'components';
 
-html, body {
-  min-height: 100%;
+main {
+  min-height: 100vh;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
   font-family: var(--font);
   background-color: lightgray;
 }
@@ -135,3 +135,4 @@ body {
 @import 'menu';
 @import 'login';
 @import 'register';
+@import 'order';

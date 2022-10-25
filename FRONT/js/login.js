@@ -1,6 +1,7 @@
 import {
   toggleDropMenu,
   authLogin,
+  API_URL,
 } from './helpers.js'
 
 toggleDropMenu()
@@ -29,8 +30,6 @@ const $form = document.querySelector('#loginForm')
 $form.onsubmit = function(event) {
   event.preventDefault()  
 
-  const API_URL = 'http://192.168.1.5:8080/api/login'
-
   const $incorrectUserOrPass = document.querySelector('#IncorrectUserOrPass')
 
   const username = document.forms['loginForm'].username.value
@@ -46,7 +45,7 @@ $form.onsubmit = function(event) {
     headers: { 'Content-Type': 'application/json '}
   }
 
-  fetch(API_URL, header).then(response => {
+  fetch(`${API_URL}/api/login`, header).then(response => {
     response.json().then(data => {
       if(data.message === 'username or password incorrect') {
         $incorrectUserOrPass.style.opacity = '1'  
