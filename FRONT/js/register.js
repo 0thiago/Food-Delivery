@@ -1,7 +1,11 @@
 import {
-  toggleDropMenu, validateRegisterData, API_URL,
+  openCartPage,
+  toggleDropMenu, 
+  validateRegisterData, 
+  API_URL,
 } from './helpers.js'
 
+openCartPage()
 toggleDropMenu()
 
 const $form = document.querySelector('#registerForm')

@@ -18,7 +18,9 @@
 
       <p>Food Delivery</p>
 
-      <div class="header__chart"><p>10</p></div>
+      <div id="cartButton" class="header__chart">
+        <p>10</p>
+      </div>
 
       <img src="/imgs/burguer-menu-slim.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
 
@@ -47,6 +49,7 @@
       <div class="login__auth-container">
 
         <h3>Login</h3>
+
         <p>First time here? <a href="/register.html">Create an account</a></p>
         <div id="IncorrectUserOrPass" >
           Username or Password incorrect!
@@ -69,6 +72,11 @@
               <span>invalid password</span>
               <input type="password" name="password" id="password">
             </div>
+          </div>
+
+          <div class="admin-container">
+            <input type="checkbox" name="adminCheckbox" id="adminCheckbox" class="admin-checkbox">
+            <label for="adminCheckbox">Admin</label>
           </div>
 
           <button id="loginButton" type="submit" class="button">Login</button>      

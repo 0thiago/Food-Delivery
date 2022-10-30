@@ -1,13 +1,15 @@
 import {
+  openCartPage,
   toggleDropMenu,
   authLogin,
   API_URL,
 } from './helpers.js'
 
+openCartPage()
 toggleDropMenu()
 
 function formLogin() {
-  
+
   const $usernameInput = document.querySelector('#username')
   const $passwordInput = document.querySelector('#password')
   const $loginButton = document.querySelector('#loginButton')
@@ -27,8 +29,8 @@ formLogin()
 
 const $form = document.querySelector('#loginForm')
 
-$form.onsubmit = function(event) {
-  event.preventDefault()  
+$form.onsubmit = function (event) {
+  event.preventDefault()
 
   const $incorrectUserOrPass = document.querySelector('#IncorrectUserOrPass')
 
@@ -42,30 +44,59 @@ $form.onsubmit = function(event) {
       username,
       password
     }),
-    headers: { 'Content-Type': 'application/json '}
+    headers: { 'Content-Type': 'application/json ' }
   }
 
-  fetch(`${API_URL}/api/login`, header).then(response => {
-    response.json().then(data => {
-      if(data.message === 'username or password incorrect') {
-        $incorrectUserOrPass.style.opacity = '1'  
-        return false
-      } else {
 
-        const userToken = [
-          {user: data.name},
-          {token: data.token}        
-        ]
-        const tokenJSON = JSON.stringify(userToken)
-        localStorage.setItem('token', tokenJSON)
+  if (document.forms['loginForm'].adminCheckbox.checked) {
+    console.log('nessa rota')
+    fetch(`${API_URL}/api/admins`, header).then(response => {
+      response.json().then(data => {
+        if (data.message === 'username or password incorrect') {
+          $incorrectUserOrPass.style.opacity = '1'
+          return false
+        } else {
 
-        alert(`Welcome ${data.name}!`)
+          const userToken = [
+            { user: data.name },
+            { token: data.token }
+          ]
+          const tokenJSON = JSON.stringify(userToken)
+          localStorage.setItem('token', tokenJSON)
 
-        window.location.href = '/index.html'
+          alert(`Welcome ${data.name}!`)
 
-      }
+          window.location.href = '/admin.html'
+
+        }
+      })
     })
-  })
+  } else {
+    fetch(`${API_URL}/api/login`, header).then(response => {
+      response.json().then(data => {
+        if (data.message === 'username or password incorrect') {
+          $incorrectUserOrPass.style.opacity = '1'
+          return false
+        } else {
+
+          const userToken = [
+            { user: data.name },
+            { token: data.token }
+          ]
+          const tokenJSON = JSON.stringify(userToken)
+          localStorage.setItem('token', tokenJSON)
+
+          alert(`Welcome ${data.name}!`)
+
+          // window.location.href = '/index.html'
+
+        }
+      })
+    })
+
+
+  }
+
 
 }
 

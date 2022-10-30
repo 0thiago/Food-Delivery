@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" href="/imgs/favicon-red.png" type="image/x-icon">
-  <title>Food Delivery - Order Now</title>
+  <title>Food Delivery - Order Status</title>
 </head>
 
 <body>
@@ -37,33 +37,40 @@
 
   </header>
 
-  <main class="order">
+  <main class="order-status">
 
-    <section class="order__header">
-      <div class="order__header-container">
+    <section class="order-status__header">
+      <div class="order-status__header-container">
       </div>
     </section>
 
-    <section class="order__product-container">
+    <section id="orderContainer" class="order-status__orders">
 
-      <div id="productContainer" class="order__product">
+      <!-- 
+        <div class="order">
+          <h3>Order ID: <span id="orderIDContainer">12102010212</span></h3>
 
-        <!-- <h3>Product Name</h3>
-        <img src="/imgs/plate-of-food.png" alt="Product name">
-        <p class="order__product-description">Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Est suscipit dolores corrupti, quaerat nihil minus. Adolor sit amet consectetur adipisicing.</p>
-        <p class="order__product-price">Price: $ 19.9</p>
-        <label for="observations">Observatios:</label>
-        <textarea name="observations" id="observations" cols="30" rows="3"></textarea>
-        <button id="orderButton" class="button">ADD TO CART</button> -->
-      
-      </div>
+          <div class="order__products">
+            <img src="/imgs/plate-of-food.png" alt="">
+            <div class="order__products-info">
+              <p>Product Name</p>
+              <p>x2</p>
+            </div>
+          </div>
+
+          <div class="order__status">
+            <p>Status:</p>
+            <p>Pending</p>
+          </div> 
+        </div> 
+      -->
 
     </section>
 
-    
+
 
   </main>
 </body>
-<script type="module" src="js/order.js"></script>
+<script type="module" src="js/order-status.js"></script>
 
 </html>

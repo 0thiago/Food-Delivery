@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="/imgs/favicon-red.png" type="image/x-icon">
+  <title>Food Delivery - Cart</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+
+      <img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img">
+
+      <p>Food Delivery</p>
+
+      <div id="cartButton" class="header__chart">
+        <p>10</p>
+      </div>
+
+      <img src="/imgs/burguer-menu-slim.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
+
+      <nav id="dropMenu" class="header__navmenu">
+        <ul class="header__navmenu-container">
+          <li class="header__navmenu-item"><a class="menuItem" href="index.html">Home</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="menu.html">Menu</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="login.html">Login</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="reviews.html">Reviews</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="cart">
+
+    <section class="cart__header">
+      <div class="cart__header-container">
+      </div>
+    </section>
+
+    <div class="cart__products-container">
+
+      <section id="cartContainer" class="cart__products">
+
+        <!-- 
+          <div class="cart__products-item">
+
+          <div class="thumbnail"><img src="/imgs/plate-of-food.png" alt="thumbnail"></div>
+
+          <div class="item-data-container">
+
+            <div class="item-name-and-price">
+              <p class="name">Product Name</p>
+              <p class="price">$ 19.9</p>
+            </div>
+            <div class="item-management">
+              <div class="item-quantity">
+                <button class="remove-one button">-</button>
+                <p class="number">1</p>
+                <button class="add-one button">+</button>
+              </div>
+              <div class="remove-item">
+                <button class="remove button">Remove item</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div> 
+      -->
+
+      </section>      
+
+    </div>
+
+    <div class="value-and-buttons-container">
+      <section class="cart__total-value">
+        <h3>Total:</h3>
+        <p id="totalValue"></p>
+      </section>
+      <section class="finish-or-keepshopping">
+        <button id="keepButton" class="keep button">Keep Shopping</button>
+        <button id="finishButton" class="finish button">Finish</button>
+      </section>
+    </div>
+
+  </main>
+</body>
+<script type="module" src="js/cart.js"></script>
+
+</html>

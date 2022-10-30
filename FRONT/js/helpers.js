@@ -1,7 +1,15 @@
 const API_URL = 'http://192.168.1.5:8080'
 
-//trabalho: http://192.168.3.173:8080
+//trabalho: http://192.168.3.X:8080
 //casa: http://192.168.1.5:8080 
+
+function openCartPage() {
+  const $cartButton = document.querySelector('#cartButton')
+
+  $cartButton.onclick = (button) => {
+    window.location.href = '/cart.html'
+  }
+}
 
 function productsCarousel() {
   const $wrapper = document.querySelector('.home__products-wrapper')
@@ -13,7 +21,6 @@ function productsCarousel() {
     pressed = true
     startX = event.clientX
     this.style.cursor = 'grabbing'
-
   })
 
   $wrapper.addEventListener('mouseleave', function (event) {
@@ -69,14 +76,14 @@ function getSalesProducts() {
         $orderButton.forEach((button) => {
           button.onclick = (button) => {
             const id = button.target.dataset['id']
+            
             fetch(`${API_URL}/api/order/${id}`).then(response => {
               response.json().then(data => {                
                 const productFromHomeID = id
                 const productIDJSON = JSON.stringify(productFromHomeID)
-                localStorage.setItem('productFromHomeID', productIDJSON)
+                localStorage.setItem('productID', productIDJSON)
 
-                window.location.href = "/order.html"
-          
+                window.location.href = "/order.html"       
               
               })
             }).catch(error => console.log(error))
@@ -260,6 +267,7 @@ function validateRegisterData(username, Name, email, password) {
 }
 
 export {
+  openCartPage,
   productsCarousel,
   getSalesProducts,
   toggleDropMenu,

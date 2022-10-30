@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="/imgs/favicon-red.png" type="image/x-icon">
+  <title>Food Delivery - Admin</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+
+      <img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img">
+
+      <p>Admin - Dashboard</p>
+
+      <img src="/imgs/burguer-menu-slim-red.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
+
+      <nav id="dropMenu" class="header__navmenu">
+        <ul class="header__navmenu-container">
+          <li class="header__navmenu-item"><a class="menuItem" href="index.html">Home</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="menu.html">Menu</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="login.html">Login</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="reviews.html">Reviews</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="admin">
+
+    <section class="admin__clients">
+      <div class="open">
+        <h3 class="title">Clients</h3>
+      </div>
+      <div class="search hidden">
+        <label for="searchClients">Search:</label>
+        <input type="text" name="searchClients" id="searchClients">
+      </div>
+      <div class="admin__clients-list hidden">
+        <ul id="clientsListContainer">
+          <!-- <li>
+            <span>Client Name</span>
+            <div class="buttons">
+              <button class="edit button">Edit</button>
+              <button class="remove button">Remove</button>
+            </div>
+          </li> -->
+        </ul>
+        <div id="editClientContainer" class="background-container hidden">
+          <div class="admin__clients-edit ">
+            <form action="">
+              <h3>Edit Client</h3>
+              <div class="username-field">
+                <label for="clientUsername">Username:</label>
+                <input type="text" name="clientUsername" id="clientUsername">
+              </div>
+              <div class="name-field">
+                <label for="clientName">Name:</label>
+                <input type="text" name="clientName" id="clientName">
+              </div>
+              <div class="email-field">
+                <label for="clientEmail">E-mail:</label>
+                <input type="email" name="clientEmail" id="clientEmail">
+              </div>
+              <div class="phone-field">
+                <label for="clientPhone">Phone:</label>
+                <input type="tel" name="clientPhone" id="clientPhone">
+              </div>
+              <div class="address-field">
+                <label for="clientAddress">Address:</label>
+                <input type="address" name="clientAddress" id="clientAddress">
+              </div>
+              <div class="password-fields">
+                <label for="clientPassword">Password:</label>
+                <input type="password" name="clientPassword" id="clientPassword">
+              </div>
+              <div class="buttons">
+                <button class="confirm button">Confirm</button>
+                <button class="reset button">Reset</button>
+                <button class="cancel button">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="admin__products">
+      <div class="open">
+        <h3 class="title">Products</h3>
+      </div>
+      <div class="search hidden">
+        <label for="searchProducts">Search:</label>
+        <input type="text" name="searchProducts" id="searchProducts">
+      </div>
+      <div class="admin__products-list hidden">
+        <ul id="productsListContainer">
+          <li>
+            <span>Product Name</span>
+            <div class="buttons">
+              <button class="edit button">Edit</button>
+              <button class="remove button">Remove</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="admin__orders">
+      <div class="open">
+        <h3 class="title">Orders</h3>
+      </div>
+      <div class="search hidden">
+        <label for="searchOrders">Search:</label>
+        <input type="text" name="searchOrders" id="searchOrders">
+      </div>
+      <div class="admin__orders-list hidden">
+        <ul id="ordersListContainer">
+          <!-- <li>
+            <span>10210212012101212102120121210102121</span>
+            <div class="buttons">
+              <button class="edit button">Edit</button>
+              <button class="remove button">Remove</button>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </section>    
+
+  </main>
+</body>
+<script type="module" src="js/admin.js"></script>
+
+</html>

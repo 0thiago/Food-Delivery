@@ -122,12 +122,8 @@ body {
         &:hover {
           color: var(--primary-color-dark);
         }
-
       }
-
     }
-
-
   }
 }
 
@@ -136,3 +132,7 @@ body {
 @import 'login';
 @import 'register';
 @import 'order';
+@import 'cart';
+@import 'order-status';
+@import 'admin';
+@import 'edit-clients';
