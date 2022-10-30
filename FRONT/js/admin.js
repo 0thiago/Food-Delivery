@@ -42,9 +42,11 @@ const buildAdminPage = {
   cacheStorage: function () {
 
     this.$open = document.querySelectorAll('.open')
+
     this.$clientsListContainer = document.querySelector('#clientsListContainer')
-    this.$editClientButton = document.querySelectorAll('.edit')
+    this.$editClientButton = document.querySelectorAll('.edit')    
     this.$editClientContainer = document.querySelector('#editClientContainer')
+    this.$removeClientButton = document.querySelectorAll('.remove')
 
 
     this.$productsListContainer = document.querySelector('#productsListContainer')
@@ -60,11 +62,11 @@ const buildAdminPage = {
 
     this.$confirmEditionButton = document.querySelector('#confirmEditionButton')
     this.$resetFieldsButton = document.querySelector('#confirmFieldsButton')
-    this.$cancelEditionButton = document.querySelector('#cancelEditionButton')
+    this.$cancelClientEditionButton = document.querySelector('#cancelClientEditionButton')
 
-    this.$removeClientButton = document.querySelector('#removeClient')
+    
     this.$removeProductButton = document.querySelector('#removeProduct')
-    this.$removeClientButton = document.querySelector('#removeOrder')    
+    this.$removeOrderButton = document.querySelector('#removeOrder')    
 
   },
 
@@ -121,7 +123,11 @@ const buildAdminPage = {
             const self = this
             button.onclick = self.Events.editClient.bind(self)
           })
-       
+
+          this.$removeClientButton.forEach((button)=>{
+            const self = this
+            button.onclick = self.Events.removeClient.bind(self)
+          })       
           
         })
 
@@ -249,7 +255,7 @@ const buildAdminPage = {
                         Reset
                     </button>
                     <button 
-                      id="cancelEditionButton" class="cancel button">
+                      id="cancelClientEditionButton" class="cancel button">
                         Cancel
                     </button>
                   </div>
@@ -279,9 +285,9 @@ const buildAdminPage = {
               document.querySelector('#form').clientPassword.value = ''              
             }
 
-            this.$cancelEditionButton.onclick = (button) => {
+            this.$cancelClientEditionButton.onclick = (button) => {
               button.preventDefault()
-              self.Events.cancelEdition(button)
+              self.Events.cancelClientEdition(button)
             }
 
           })
@@ -327,13 +333,200 @@ const buildAdminPage = {
       })
     },
 
-    cancelEdition: function (button){
+    cancelClientEdition: function (button){
       document.querySelector('#editClientContainer').classList.add('hidden') 
      },
 
-    resetValues: function (button) {
+    removeClient: function (button) {
+      const self = this
+      const clientID = button.target.dataset['id']
 
+      let confirmation = confirm(`Do you really want to delete ${clientID}`)
+
+      if (!confirmation) {
+        alert('Client not deleted')
+        return false
+      }
+     
+      fetch(`${API_URL}/api/clients/${clientID}`, { method: 'DELETE' }).then(response => {
+        response.json().then(data => {
+         if (data.message === 'success') {
+          alert('Client deleted')
+          console.log(this.$clientsListContainer)
+          this.$clientsListContainer.innerHTML = ''
+          this.showClientList()
+
+         } else {
+          alert('Oops, something went wrong, try again.')
+         }
+        })
+      })
+
+      this.cacheStorage()
+      this.bindEvents()
     },
+
+    // editClient: function (button) {
+    //   const clientID = button.target.dataset['id']
+    //   const editClientWindow = button.target.parentElement.parentElement.parentElement.nextElementSibling
+
+    //   editClientWindow.classList.remove('hidden')
+
+    //   fetch(`${API_URL}/api/clients/${clientID}`).then(response => {
+    //     response.json().then(data => {
+    //       data.map(client => {
+            
+    //         const editClientHTML = `
+    //           <div class="admin__clients-edit ">
+    //             <form id="form" action="">
+    //               <h3>Edit Client</h3>
+    //               <div class="username-field">
+    //                 <label for="clientUsername">Username:</label>
+    //                 <input type="text" name="clientUsername" id="clientUsername"
+    //                 value="${client.username}"
+    //                 >
+    //               </div>
+    //               <div class="name-field">
+    //                 <label for="clientName">Name:</label>
+    //                 <input type="text" name="clientName" id="clientName" value="${client.name}">
+    //               </div>
+    //               <div class="email-field">
+    //                 <label for="clientEmail">E-mail:</label>
+    //                 <input type="email" name="clientEmail" id="clientEmail" value="${client.email}">
+    //               </div>
+    //               <div class="phone-field">
+    //                 <label for="clientPhone">Phone:</label>
+    //                 <input type="tel" name="clientPhone" id="clientPhone" value="${client.phone}">
+    //               </div>
+    //               <div class="address-field">
+    //                 <label for="clientAddress">Address:</label>
+    //                 <input type="address" name="clientAddress" id="clientAddress" value="${client.address}">
+    //               </div>
+    //               <div class="password-fields">
+    //                 <label for="clientPassword">Password:</label>
+    //                 <input type="text" name="clientPassword" id="clientPassword" value="${client.password}">
+    //               </div>
+    //               <div class="buttons">
+    //                 <button 
+    //                   data-id="${client._id}" id="confirmEditionButton" class="confirm button">
+    //                     Confirm
+    //                 </button>
+    //                 <button 
+    //                   id="resetFieldsButton" 
+    //                   class="reset button">
+    //                     Reset
+    //                 </button>
+    //                 <button 
+    //                   id="cancelClientEditionButton" class="cancel button">
+    //                     Cancel
+    //                 </button>
+    //               </div>
+    //             </form>
+    //           </div>
+    //         `
+
+    //         this.$editClientContainer.innerHTML = editClientHTML
+  
+    //         this.cacheStorage()
+    //         this.bindEvents()
+
+    //         const self = this  
+            
+    //         this.$confirmEditionButton.onclick = (button)=> {
+    //           button.preventDefault()        
+    //           self.Events.confirmClientEdition(button)
+    //         }
+
+    //         document.querySelector('#resetFieldsButton').onclick = (button)=> {
+    //           button.preventDefault()        
+    //           document.querySelector('#form').clientUsername.value = ''
+    //           document.querySelector('#form').clientName.value = ''
+    //           document.querySelector('#form').clientEmail.value = ''
+    //           document.querySelector('#form').clientPhone.value = ''
+    //           document.querySelector('#form').clientAddress.value = ''
+    //           document.querySelector('#form').clientPassword.value = ''              
+    //         }
+
+    //         this.$cancelClientEditionButton.onclick = (button) => {
+    //           button.preventDefault()
+    //           self.Events.cancelClientEdition(button)
+    //         }
+
+    //       })
+  
+    //     })
+    //   })
+      
+    // },
+
+    // confirmClientEdition: function (button) {
+    //   const self = this
+    //   const clientID = button.target.dataset['id']
+
+    //   const username = document.forms['form'].clientUsername.value
+    //   const name = document.forms['form'].clientName.value
+    //   const email = document.forms['form'].clientEmail.value
+    //   const phone = document.forms['form'].clientPhone.value
+    //   const address = document.forms['form'].clientAddress.value
+    //   const password = document.forms['form'].clientPassword.value
+
+    //   const body = {
+    //     username,
+    //     name,
+    //     email,
+    //     phone,
+    //     address,
+    //     password
+    //   }
+  
+    //   const header = {
+    //     method: 'PUT',
+    //     body: JSON.stringify(body),
+    //     headers: { 'Content-Type': 'application/json' }
+    //   }
+
+    //   fetch(`${API_URL}/api/clients/${clientID}`, header).then(response => {
+    //     response.json().then(data => {
+    //       if(data.message === 'success') {
+    //         alert('Client successfully edited')
+    //         document.querySelector('#editClientContainer').classList.add('hidden') 
+    //       }
+    //     })
+    //   })
+    // },
+
+    // cancelClientEdition: function (button){
+    //   document.querySelector('#editClientContainer').classList.add('hidden') 
+    //  },
+
+    // removeClient: function (button) {
+    //   const self = this
+    //   const clientID = button.target.dataset['id']
+
+    //   let confirmation = confirm(`Do you really want to delete ${clientID}`)
+
+    //   if (!confirmation) {
+    //     alert('Client not deleted')
+    //     return false
+    //   }
+     
+    //   fetch(`${API_URL}/api/clients/${clientID}`, { method: 'DELETE' }).then(response => {
+    //     response.json().then(data => {
+    //      if (data.message === 'success') {
+    //       alert('Client deleted')
+    //       console.log(this.$clientsListContainer)
+    //       this.$clientsListContainer.innerHTML = ''
+    //       this.showClientList()
+
+    //      } else {
+    //       alert('Oops, something went wrong, try again.')
+    //      }
+    //     })
+    //   })
+
+    //   this.cacheStorage()
+    //   this.bindEvents()
+    // },
 
     showHiddenItems: function (item) {
       const self = this
