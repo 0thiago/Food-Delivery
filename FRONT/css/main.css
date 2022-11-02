@@ -32,10 +32,7 @@
 .button:hover {
   cursor: pointer;
   filter: brightness(1.2);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .button:active {
   box-shadow: inset 1px 1px 2.5px rgba(0, 0, 0, 0.455);
@@ -185,19 +182,14 @@ body {
   display: flex;
   justify-content: start;
   overflow-x: auto;
-  -ms-scroll-snap-type: x;
-      scroll-snap-type: x;
+  scroll-snap-type: x;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  cursor: -webkit-grab;
   cursor: grab;
 }
 .home .home__products-wrapper .slider {
   scroll-snap-align: start;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.235);
   margin: 0 10px;
 }
@@ -240,9 +232,7 @@ body {
 }
 .home .home__products-card .caption-img-box .caption-button-box figcaption {
   font-size: 14px;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
 }
 .home .home__products-card .caption-img-box .caption-button-box .button {
   text-transform: uppercase;
@@ -331,27 +321,20 @@ body {
   display: flex;
   justify-content: start;
   overflow-x: auto;
-  -ms-scroll-snap-type: x;
-      scroll-snap-type: x;
+  scroll-snap-type: x;
   scroll-behavior: smooth;
   scrollbar-width: none;
   padding: 20px 0 5px;
-  cursor: -webkit-grab;
   cursor: grab;
 }
 .menu__products-type-wrapper .slider {
   scroll-snap-align: start;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   margin: 0 10px;
 }
 .menu__products-type-wrapper .slider button {
   background-color: var(--primary-color);
   color: white;
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
   min-width: max-content;
   padding: 5px 10px;
 }
@@ -403,9 +386,7 @@ body {
 }
 .menu__products-container figure figcaption {
   padding: 10px;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   text-align: justify;
 }
 .menu__products-container figure p {
@@ -463,8 +444,6 @@ body {
   position: relative;
   opacity: 0;
   margin: 0 auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   text-align: center;
   color: red;
@@ -597,8 +576,6 @@ body {
   position: relative;
   opacity: 0;
   margin: 0 auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   text-align: center;
   color: red;
@@ -943,7 +920,6 @@ body {
   font-weight: 700;
 }
 .cart .value-and-buttons-container {
-  position: -webkit-sticky;
   position: sticky;
   bottom: 0;
   left: 0;
@@ -1075,38 +1051,41 @@ body {
 .admin__clients-list ul li:nth-child(2n-1) {
   background-color: rgba(255, 0, 0, 0.137);
 }
-.admin__clients .background-container {
-  position: fixed;
+.admin__clients-list .background-container {
+  position: absolute;
   top: 51px;
   right: 0;
   left: 0;
+  bottom: 0;
   margin: 0 auto;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.39);
+  background-color: rgba(0, 0, 0, 0.2);
 }
-.admin__clients-edit {
-  position: fixed;
-  top: 51px;
+.admin__clients-list .background-container .admin__item-edit {
+  position: sticky;
+  top: 0;
   right: 0;
   left: 0;
+  bottom: 0;
   margin: 0 auto;
   background-color: white;
 }
-.admin__clients-edit form {
+.admin__clients-list .background-container .admin__item-edit form {
   display: flex;
   flex-direction: column;
   padding: 10px;
   border: 2px solid blue;
   border-radius: 3px;
 }
-.admin__clients-edit form h3 {
+.admin__clients-list .background-container .admin__item-edit form h3 {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
   padding: 0 0 10px;
+  text-transform: capitalize;
 }
-.admin__clients-edit form > div {
+.admin__clients-list .background-container .admin__item-edit form > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1114,58 +1093,127 @@ body {
   margin: 5px 0;
   border: 1px solid rgba(0, 0, 0, 0.272);
 }
-.admin__clients-edit form > div label {
+.admin__clients-list .background-container .admin__item-edit form > div label {
   margin-left: 5px;
 }
-.admin__clients-edit form > div input {
+.admin__clients-list .background-container .admin__item-edit form > div input {
   height: 30px;
   width: 65%;
   text-indent: 10px;
   font-family: var(--font);
   font-size: 14px;
 }
-.admin__clients-edit form .buttons {
+.admin__clients-list .background-container .admin__item-edit form .buttons {
   padding: 10px;
   justify-content: space-around;
 }
-.admin__clients-edit form .buttons button {
+.admin__clients-list .background-container .admin__item-edit form .buttons button {
   padding: 5px 10px;
   font-weight: 500;
 }
-.admin__clients-edit form .buttons .reset {
+.admin__clients-list .background-container .admin__item-edit form .buttons .reset {
+  background-color: lightgray;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+}
+.admin__clients-list .background-container .admin__item-edit form .buttons .cancel {
+  background-color: red;
+}
+.admin__products-list {
+  border: 2px solid var(--primary-color-light);
+}
+.admin__products-list ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.admin__products-list ul li span {
+  max-width: 50%;
+  font-size: 18px;
+  font-weight: 500;
+  word-break: break-all;
+}
+.admin__products-list ul li .buttons .edit {
+  background-color: rgb(0, 115, 255);
+}
+.admin__products-list ul li .buttons .remove {
+  background-color: red;
+}
+.admin__products-list ul li .buttons .button {
+  padding: 10px;
+}
+.admin__products-list ul li:nth-child(2n-1) {
+  background-color: rgba(255, 0, 0, 0.137);
+}
+.admin__products-list .background-container {
+  position: absolute;
+  top: 51px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.admin__products-list .background-container .admin__item-edit {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  background-color: white;
+}
+.admin__products-list .background-container .admin__item-edit form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 2px solid blue;
+  border-radius: 3px;
+}
+.admin__products-list .background-container .admin__item-edit form h3 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 0 10px;
+  text-transform: capitalize;
+}
+.admin__products-list .background-container .admin__item-edit form > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  margin: 5px 0;
+  border: 1px solid rgba(0, 0, 0, 0.272);
+}
+.admin__products-list .background-container .admin__item-edit form > div label {
+  margin-left: 5px;
+}
+.admin__products-list .background-container .admin__item-edit form > div input {
+  height: 30px;
+  width: 65%;
+  text-indent: 10px;
+  font-family: var(--font);
+  font-size: 14px;
+}
+.admin__products-list .background-container .admin__item-edit form .buttons {
+  padding: 10px;
+  justify-content: space-around;
+}
+.admin__products-list .background-container .admin__item-edit form .buttons button {
+  padding: 5px 10px;
+  font-weight: 500;
+}
+.admin__products-list .background-container .admin__item-edit form .buttons .reset {
   background-color: lightgray;
   border: 1px solid black;
   color: black;
 }
-.admin__clients-edit form .buttons .cancel {
+.admin__products-list .background-container .admin__item-edit form .buttons .cancel {
   background-color: red;
-}
-.admin__products-list {
-  border: 2px solid var(--primary-color-light);
-}
-.admin__products-list ul li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
-.admin__products-list ul li span {
-  max-width: 50%;
-  font-size: 18px;
-  font-weight: 500;
-  word-break: break-all;
-}
-.admin__products-list ul li .buttons .edit {
-  background-color: rgb(0, 115, 255);
-}
-.admin__products-list ul li .buttons .remove {
-  background-color: red;
-}
-.admin__products-list ul li .buttons .button {
-  padding: 10px;
-}
-.admin__products-list ul li:nth-child(2n-1) {
-  background-color: rgba(255, 0, 0, 0.137);
 }
 .admin__orders-list {
   border: 2px solid var(--primary-color-light);
@@ -1194,142 +1242,102 @@ body {
 .admin__orders-list ul li:nth-child(2n-1) {
   background-color: rgba(255, 0, 0, 0.137);
 }
-
-.title {
-  margin: 0.5px 0;
-  padding: 10px;
-  width: 100%;
+.admin__orders-list .background-container {
+  position: absolute;
+  top: 51px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
   height: 100%;
-  text-align: center;
-  color: var(--primary-color);
-}
-
-.selected {
-  background-color: var(--primary-color-light);
-  color: white;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  gap: 0.5rem;
-  font-weight: 500;
-}
-.search input {
-  text-indent: 10px;
-  font-family: var(--font);
-  font-size: 16px;
-  height: 30px;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
 }
-
-.hidden {
-  display: none;
-}
-
-.admin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 51px 10px 0;
+.admin__orders-list .background-container .admin__item-edit {
+  position: sticky;
+  top: 51px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
   background-color: white;
 }
-.admin ul {
-  list-style: none;
-}
-.admin section {
-  width: 100%;
-  padding: 1px;
-  border: 2px solid var(--primary-color-light);
-  margin: 10px 10px 0;
-}
-.admin section .open {
-  width: 100%;
-  height: 100%;
-  border: 2px solid black;
-}
-.admin__clients-list {
-  border: 2px solid var(--primary-color-light);
-}
-.admin__clients-list ul li {
+.admin__orders-list .background-container .admin__item-edit form {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 10px;
+  border: 2px solid blue;
+  border-radius: 3px;
 }
-.admin__clients-list ul li span {
-  max-width: 50%;
+.admin__orders-list .background-container .admin__item-edit form h3 {
+  text-align: center;
   font-size: 18px;
   font-weight: 500;
-  word-break: break-all;
+  padding: 0 0 10px;
+  text-transform: capitalize;
 }
-.admin__clients-list ul li .buttons .edit {
-  background-color: rgb(0, 115, 255);
-}
-.admin__clients-list ul li .buttons .remove {
-  background-color: red;
-}
-.admin__clients-list ul li .buttons .button {
-  padding: 10px;
-}
-.admin__clients-list ul li:nth-child(2n-1) {
-  background-color: rgba(255, 0, 0, 0.137);
-}
-.admin__products-list {
-  border: 2px solid var(--primary-color-light);
-}
-.admin__products-list ul li {
+.admin__orders-list .background-container .admin__item-edit form > div {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px;
-}
-.admin__products-list ul li span {
-  max-width: 50%;
-  font-size: 18px;
-  font-weight: 500;
-  word-break: break-all;
-}
-.admin__products-list ul li .buttons .edit {
-  background-color: rgb(0, 115, 255);
-}
-.admin__products-list ul li .buttons .remove {
-  background-color: red;
-}
-.admin__products-list ul li .buttons .button {
-  padding: 10px;
-}
-.admin__products-list ul li:nth-child(2n-1) {
-  background-color: rgba(255, 0, 0, 0.137);
-}
-.admin__orders-list {
-  border: 2px solid var(--primary-color-light);
-}
-.admin__orders-list ul li {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px;
+  padding: 10px 5px;
+  margin: 5px 0;
+  border: 1px solid rgba(0, 0, 0, 0.272);
 }
-.admin__orders-list ul li span {
-  max-width: 50%;
+.admin__orders-list .background-container .admin__item-edit form > div label {
+  margin-left: 5px;
+}
+.admin__orders-list .background-container .admin__item-edit form > div input {
+  height: 30px;
+  width: 65%;
+  text-indent: 10px;
+  font-family: var(--font);
   font-size: 14px;
+}
+.admin__orders-list .background-container .admin__item-edit form > div.productData-field {
+  flex-direction: column;
+}
+.admin__orders-list .background-container .admin__item-edit form > div.productData-field p {
   font-weight: 500;
-  word-break: break-all;
+  margin-bottom: 10px;
 }
-.admin__orders-list ul li .buttons .edit {
-  background-color: rgb(0, 115, 255);
+.admin__orders-list .background-container .admin__item-edit form > div.productData-field ul {
+  width: 100%;
 }
-.admin__orders-list ul li .buttons .remove {
+.admin__orders-list .background-container .admin__item-edit form > div.productData-field ul li {
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin__orders-list .background-container .admin__item-edit form > div.productData-field ul li span {
+  font-weight: 500;
+  font-size: 16px;
+}
+.admin__orders-list .background-container .admin__item-edit form > div.productData-field ul li .removeProductFromOrder {
   background-color: red;
+  padding: 5px 10px;
 }
-.admin__orders-list ul li .buttons .button {
+.admin__orders-list .background-container .admin__item-edit form > div.productData-field .addProductOnOrder {
+  padding: 5px 10px;
+  margin: 10px 5px 5px;
+}
+.admin__orders-list .background-container .admin__item-edit form .buttons {
   padding: 10px;
+  justify-content: space-around;
 }
-.admin__orders-list ul li:nth-child(2n-1) {
-  background-color: rgba(255, 0, 0, 0.137);
+.admin__orders-list .background-container .admin__item-edit form .buttons button {
+  padding: 5px 10px;
+  font-weight: 500;
+}
+.admin__orders-list .background-container .admin__item-edit form .buttons .reset {
+  background-color: lightgray;
+  border: 1px solid black;
+  color: black;
+}
+.admin__orders-list .background-container .admin__item-edit form .buttons .cancel {
+  background-color: red;
 }
 
 .title {

@@ -57,6 +57,8 @@ $form.onsubmit = function (event) {
           return false
         } else {
 
+          $incorrectUserOrPass.style.opacity = '0'
+
           const userToken = [
             { user: data.name },
             { token: data.token }
@@ -79,6 +81,8 @@ $form.onsubmit = function (event) {
           return false
         } else {
 
+          $incorrectUserOrPass.style.opacity = '0'
+
           const userToken = [
             { user: data.name },
             { token: data.token }
@@ -88,7 +92,7 @@ $form.onsubmit = function (event) {
 
           alert(`Welcome ${data.name}!`)
 
-          // window.location.href = '/index.html'
+          window.location.href = '/index.html'
 
         }
       })
