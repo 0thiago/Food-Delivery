@@ -11,8 +11,6 @@ let productIdFromMenu
 
 const menuPageProductsBuilder = {
 
-  APIData: [],
-
   init: function () {
 
     this.cacheSelectores()

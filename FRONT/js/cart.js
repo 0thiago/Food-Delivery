@@ -43,8 +43,6 @@ const cartMainFunctions = {
 
     let totalValue = 0
 
-    // let newCart = cartProducts
-
     cartProducts.forEach((item, index) => {
 
       let prodQuantity = item.quantity
@@ -177,10 +175,6 @@ const cartMainFunctions = {
 
         alert(`Order placed successfully`)
 
-        console.log(data.order)
-
-        // localStorage.setItem('order', JSON.stringify(data.order))
-
         if (localStorage.getItem('order') === null) {
 
           localStorage.setItem('order', JSON.stringify([data.order]))          
@@ -300,9 +294,7 @@ const cartMainFunctions = {
 
       location.reload()
     }
-
   }
-
 }
 
 cartMainFunctions.init()

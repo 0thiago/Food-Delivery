@@ -32,10 +32,6 @@ verifyAdmin()
 
 const buildAdminPage = {
 
-  dbCollection: '1',
-  editDialog: ' ',
-  editContainer: ' a',
-
   init: function () {
 
     this.cacheStorage()
@@ -46,24 +42,16 @@ const buildAdminPage = {
   cacheStorage: function () {
 
     this.$open = document.querySelectorAll('.open')
-
     this.$editButton = document.querySelectorAll('.edit')
     this.$removeButton = document.querySelectorAll('.remove')
-
     this.$clientListContainer = document.querySelector('#clientListContainer')
     this.$productListContainer = document.querySelector('#productListContainer')
     this.$orderListContainer = document.querySelector('#orderListContainer')
-
     this.$editClientContainer = document.querySelector('#editClientContainer')
     this.$editProductContainer = document.querySelector('#editProductContainer')
     this.$editOrderContainer = document.querySelector('#editOrderContainer')
-
     this.$editContainer = document.querySelector('#editContainer')
-
     this.$confirmEditionButton = document.querySelector('#confirmEditionButton')
-
-
-
     this.$resetFieldsButton = document.querySelector('#resetFieldsButton')
 
   },
@@ -93,10 +81,7 @@ const buildAdminPage = {
 
       this.$cancelEditionButton.onclick = self.Events.cancelEdition.bind(this)
 
-
-
     }
-
 
   },
 

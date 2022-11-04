@@ -9,7 +9,3 @@ openCartPage()
 productsCarousel()
 getSalesProducts()
 toggleDropMenu()
-
-
-
-

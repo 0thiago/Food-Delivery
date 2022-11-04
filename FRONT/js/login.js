@@ -35,7 +35,6 @@ $form.onsubmit = function (event) {
   const $incorrectUserOrPass = document.querySelector('#IncorrectUserOrPass')
 
   const username = document.forms['loginForm'].username.value
-
   const password = document.forms['loginForm'].password.value
 
   const header = {
@@ -46,7 +45,6 @@ $form.onsubmit = function (event) {
     }),
     headers: { 'Content-Type': 'application/json ' }
   }
-
 
   if (document.forms['loginForm'].adminCheckbox.checked) {
     console.log('nessa rota')
@@ -97,11 +95,5 @@ $form.onsubmit = function (event) {
         }
       })
     })
-
-
   }
-
-
 }
-
-

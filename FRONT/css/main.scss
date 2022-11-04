@@ -13,9 +13,6 @@ main {
 }
 
 body {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
   font-family: var(--font);
   background-color: lightgray;
 }
@@ -60,7 +57,6 @@ body {
     height: 35px;
     right: 15%;
     
-    
     &>p {
       font-size: 10px;
       padding: 2px 7px;
@@ -71,19 +67,13 @@ body {
   &__burguer-menu {
     height: 30px;
     width: 35px;
-    
 
   }
 
   .menu-button--active {
     border: 3px solid white;
     border-bottom: 10px solid white;
-    
-    // box-shadow: 
-    // 3px 15px 5px 1px white,
-    // -3px -3px 5px 1px white,
-    // -3px 15px 5px 1px white,
-    // 3px -3px 5px 1px white;
+
   }
 
   .show {

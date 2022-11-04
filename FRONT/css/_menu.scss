@@ -8,7 +8,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
     z-index: 1;
 
@@ -88,7 +87,6 @@
     text-align: center;  
     background-color: white; 
     
-
     .background {
       display: flex;
       align-items: center;
@@ -116,11 +114,7 @@
       border-radius: 50%;
     }
 
-
-
     &-container {
-
-
       figure {
         // background-image: url('/imgs/card-bg-550x1080.png');
         // background-position: center;

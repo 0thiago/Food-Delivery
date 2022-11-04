@@ -15,14 +15,12 @@ const orderPage = {
     this.cacheStorage()
     this.bindEvents()
     this.buildingOrderHtml() 
-      
-
+     
   },
 
   cacheStorage: function () {
     this.$orderContainer = document.querySelector('#orderContainer')
     this.$orderProductsContainer = document.querySelector('#orderProductsContainer')
-    
     this.$orderIDContainer = document.querySelector('#orderIDContainer')
     this.$orderStatus = document.querySelector('#orderStatus')
     this.$orderID = document.querySelector('#orderID')
@@ -32,13 +30,10 @@ const orderPage = {
   buildingOrderHtml: function () {
     const orders = JSON.parse(localStorage.getItem('order'))
 
-    // console.log(orders)
-
     orders.forEach((order) => {
 
       const self = this
-      
-      
+            
       fetch(`${API_URL}/api/orders/${order._id}`).then(response => response.json().then(data => {
 
         const items = [ data.order[0] ]        
@@ -59,30 +54,19 @@ const orderPage = {
         `
 
         this.$orderContainer.innerHTML += orderHTML
-
         
         this.cacheStorage()
         this.bindEvents()
         this.buildingOrderProductsHtml()
-        
 
       }))
-    })
-
-    
+    })   
   },
 
   buildingOrderProductsHtml: function () {
     console.log(this.$orderProductsContainer)
   },
 
-  bindEvents: function () {
-
-  },
-
-  Events: {
-
-  }
 }
 
 orderPage.init()
