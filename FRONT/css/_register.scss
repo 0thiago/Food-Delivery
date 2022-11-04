@@ -290,3 +290,12 @@
     }
   }
 }
+
+@media screen and (min-width: 658px) {
+  .home {
+
+    &__header {
+      background-size: contain;
+    }
+  }
+}

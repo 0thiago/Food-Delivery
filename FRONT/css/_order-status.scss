@@ -6,6 +6,7 @@
   &__header {
     background-image: url('../imgs/banner-order-status-1920x560.png');
     background-size: cover;
+    background-color: var(--primary-color);
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
@@ -63,6 +64,37 @@
         padding: 20px;
         font-weight: 700;
       }
+    }
+  }
+
+}
+
+@media screen and (min-width: 658px) {
+  .order-status {
+
+    &__header {
+      background-size: contain;
+    }
+
+    &__orders {
+      .order {
+        max-width: 900px;
+        margin: 10px auto;
+        background-color: white;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.29);
+        border-radius: 3px;
+        padding: 0 10px; 
+
+        &__status {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 3rem;
+          padding: 20px;
+          font-weight: 700;
+        }
+      } 
+
     }
   }
 }

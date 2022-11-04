@@ -11,6 +11,21 @@ function openCartPage() {
   }
 }
 
+function showProductsAmountOnCart() {
+  const cartProducts = JSON.parse(localStorage.getItem('cart'))
+
+  let quantity = 0
+
+  cartProducts.forEach((products)=>{
+    quantity = quantity+products.quantity
+      
+  })
+
+  const $productsAmountImg = document.querySelector('#productsAmount')
+
+  $productsAmountImg.innerText = quantity
+}
+
 function productsCarousel() {
   const $wrapper = document.querySelector('.home__products-wrapper')
 
@@ -51,13 +66,14 @@ function getSalesProducts() {
 
         data = data.filter(products => products.promo === true)
 
-        const salesSectionHtml = data.map(products => `
-        <div class="slider">
+        const salesSectionHtml = data.map(products => 
+        `<div class="slider">
           <figure class="home__products-card">
-            <span class="sale-span">SALE!</span>
+            <span class="sale-span">SALEa</span>
             <h3>${products.name}</h3>
             <div class="caption-img-box">
-              <img src="${products.pictureUrl}" alt="${products.name} image">
+              <div id="productImage" class="product-image" 
+              style="background-image: url('${products.pictureUrl}');"></div>
               <div class="caption-button-box">
                 <figcaption>${products.description}
                 </figcaption>
@@ -66,10 +82,18 @@ function getSalesProducts() {
               </div>
             </div>
           </figure>
-        </div>      
-      `)
+        </div> `     
+      ).join(' ')
 
-        salesSectionContainer.innerHTML = salesSectionHtml
+        const productImage = document.querySelectorAll('.product-image')
+
+        productImage.forEach((img)=>{
+          img.draggable = false
+        })
+
+        console.log(salesSectionHtml)
+
+        salesSectionContainer.innerHTML += salesSectionHtml
 
         $orderButton = document.querySelectorAll('.button')        
         
@@ -278,5 +302,6 @@ export {
   validatePassword,
   authLogin,
   validateRegisterData,
+  showProductsAmountOnCart,
   API_URL,
 }

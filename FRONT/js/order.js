@@ -1,9 +1,11 @@
 import {
   openCartPage,
+  showProductsAmountOnCart,
   toggleDropMenu, 
   API_URL,
 } from './helpers.js'
 
+showProductsAmountOnCart()
 openCartPage()
 toggleDropMenu()
 
