@@ -2,10 +2,12 @@ import {
   API_URL,
   openCartPage,
   toggleDropMenu,
+  showProductsAmountOnCart,
 } from './helpers.js'
 
 openCartPage()
 toggleDropMenu()
+showProductsAmountOnCart()
 
 const cartMainFunctions = {
 
@@ -246,6 +248,7 @@ const cartMainFunctions = {
 
       this.bindEvents()
       this.cacheStorage()
+      showProductsAmountOnCart()
       this.totalValueCalculate()
     },
 
@@ -280,6 +283,7 @@ const cartMainFunctions = {
 
       this.bindEvents()
       this.cacheStorage()
+      showProductsAmountOnCart()
       this.totalValueCalculate()
     },
 

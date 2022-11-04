@@ -14,12 +14,12 @@
   <header class="header">
     <div class="header__container">
 
-      <img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img">
+      <a href="index.html"><img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img"></a>
 
       <p>Food Delivery</p>
 
       <div id="cartButton" class="header__chart">
-        <p>10</p>
+        <p id="productsAmount">0</p>
       </div>
 
       <img src="/imgs/burguer-menu-slim.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
@@ -29,8 +29,9 @@
           <li class="header__navmenu-item"><a class="menuItem" href="index.html">Home</a></li>
           <li class="header__navmenu-item"><a class="menuItem" href="menu.html">Menu</a></li>
           <li class="header__navmenu-item"><a class="menuItem" href="login.html">Login</a></li>
-          <li class="header__navmenu-item"><a class="menuItem" href="reviews.html">Reviews</a></li>
-          <li class="header__navmenu-item"><a class="menuItem" href="contact.html">Contact</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="order-status.html">My Orders</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Reviews</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -45,8 +46,8 @@
     </section>
 
     <section class="home__products">
-      <img class="left-arrow" src="/imgs/left-arrow-40x40-red.png" alt="left arrow">
-      <img class="right-arrow" src="/imgs/right-arrow-40x40-red.png" alt="right arrow">
+      <img id="leftArrow" class="left-arrow" src="/imgs/left-arrow-40x40-red.png" alt="left arrow">
+      <img id="rightArrow" class="right-arrow" src="/imgs/right-arrow-40x40-red.png" alt="right arrow">
       <div id="salesSectionContainer" class="home__products-wrapper">
 
         <!-- section build by helpers/ getSalesProducts -->
@@ -61,6 +62,16 @@
           "Lorem ipsum dolor sit amet consectetur adipisicing elit, repellendus placeat cumque maiores dol."
         </blockquote>
         <h4 class="user">User A.</h4>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="footer__container">
+        <h4>You can find us at:</h4>
+        <div class="footer__location">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.507270539782!2d-77.47051404904339!3d37.73124197966813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b13bff8de96215%3A0xdae490b5aed3a6bf!2sSuccess%20St%2C%20Ashland%2C%20VA%2023005%2C%20EUA!5e0!3m2!1spt-BR!2sbr!4v1667502621150!5m2!1spt-BR!2sbr" width="400" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p>Food Deliver by Thiago - 2022 - Copyright(c)</p>
       </div>
     </section>
 

@@ -1,9 +1,11 @@
 import {
   openCartPage,
+  showProductsAmountOnCart,
   toggleDropMenu, 
   API_URL
 } from './helpers.js'
 
+showProductsAmountOnCart()
 openCartPage()
 toggleDropMenu()
 
@@ -75,12 +77,18 @@ const menuPageProductsBuilder = {
         const productCardHtml = data.map(products => `
           <figure>
           <h3>${products.name}</h3>
-          <img src="${products.pictureUrl}" alt="${products.name} picture">
-          <figcaption>${products.description}</figcaption>
-          <p>$ ${products.price}</p>
-          <button id="orderButton" data-id="${products._id}" class="order-button button">ORDER NOW</button>
+          <div class="container1024"> 
+            <div>
+            <img src="${products.pictureUrl}" alt="${products.name} picture">
+            </div>  
+            <div class="product-info-1024">
+              <figcaption>${products.description}</figcaption>
+              <p>$ ${products.price}</p>
+              <button id="orderButton" data-id="${products._id}" class="order-button button">ORDER NOW</button>
+            </div>
+          </div>
           </figure>
-        `)
+        `).join(' ')
 
         this.$productsContainer.innerHTML = productCardHtml
         this.$loadingImg.style.display = 'none'

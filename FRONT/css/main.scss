@@ -13,9 +13,6 @@ main {
 }
 
 body {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
   font-family: var(--font);
   background-color: lightgray;
 }
@@ -29,6 +26,7 @@ body {
   height: 50px;
   display: flex;
   align-items: center;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.256);
 
   &__container {
     
@@ -51,6 +49,10 @@ body {
   }
 
   &__chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     position: absolute;
     background-image: url('/imgs/cart-100x100.png');
     background-position: center;
@@ -59,11 +61,18 @@ body {
     width: 35px;
     height: 35px;
     right: 15%;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
     
     
     &>p {
+      text-align: center;
       font-size: 10px;
-      padding: 2px 7px;
+      width: 100%;
+      padding: 0 9px 17px 0;
       font-weight: 700;
     }
   }
@@ -71,19 +80,16 @@ body {
   &__burguer-menu {
     height: 30px;
     width: 35px;
-    
+    &:hover {
+      cursor: pointer;
+    }
 
   }
 
   .menu-button--active {
     border: 3px solid white;
     border-bottom: 10px solid white;
-    
-    // box-shadow: 
-    // 3px 15px 5px 1px white,
-    // -3px -3px 5px 1px white,
-    // -3px 15px 5px 1px white,
-    // 3px -3px 5px 1px white;
+
   }
 
   .show {
@@ -94,10 +100,11 @@ body {
     display: none; //block
     background-color: white;
     position: absolute;
-    top: 40px;
+    top: 50px;
     right: 0px;
     z-index: 5;
     width: 50%;
+    max-width: 275px;
     box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.244);
     border-bottom-left-radius: 4px;
 
@@ -124,6 +131,39 @@ body {
         }
       }
     }
+  }
+}
+
+.footer {
+  display: none;
+}
+
+@media screen and (min-width: 320px){
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.263);
+
+    h4 {
+      padding: 10px;
+      text-align: center;
+    }
+
+    &__location {
+      padding: 10px;
+      border: 2px solid rgba(0, 0, 0, 0.272);
+    }
+
+    p {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
   }
 }
 

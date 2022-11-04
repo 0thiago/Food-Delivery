@@ -1,10 +1,14 @@
 import {
   API_URL,
+  showProductsAmountOnCart,
   toggleDropMenu,
+  openCartPage,
 
 } from './helpers.js'
 
+showProductsAmountOnCart()
 toggleDropMenu()
+openCartPage()
 
 const orderPage = {
 
@@ -41,7 +45,9 @@ const orderPage = {
       
       fetch(`${API_URL}/api/orders/${order._id}`).then(response => response.json().then(data => {
 
-        const items = [ data.order[0] ]        
+        console.log(data[0])
+
+        const items = [ data[0] ]        
 
         items.forEach((item)=>{
           self.products = item.productsData
@@ -49,11 +55,11 @@ const orderPage = {
 
         let orderHTML = `
           <div class="order">
-            <h3>Order ID: <a href=""><span id="orderIDContainer">${data.order[0]._id}</a></span></h3>
+            <h3>Order ID: <a href=""><span id="orderIDContainer">${data[0]._id}</a></span></h3>
           <hr>
             <div class="order__status">
               <p>Status:</p>
-              <p>${data.order[0].status}</p>
+              <p>${data[0].status}</p>
             </div> 
          </div> 
         `
@@ -73,7 +79,7 @@ const orderPage = {
   },
 
   buildingOrderProductsHtml: function () {
-    console.log(this.$orderProductsContainer)
+    
   },
 
   bindEvents: function () {
