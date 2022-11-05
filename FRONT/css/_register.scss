@@ -6,6 +6,7 @@
   &__header {
     background-image: url('../imgs/banner-register-1920x560.png');
     background-size: cover;
+    background-color: var(--primary-color);
     background-position: center;
     background-repeat: no-repeat;
 
@@ -23,9 +24,11 @@
 
   &__user-data {
     &-container {
+      width: 90%;
+      max-width: 400px;
       min-height: 220px;
       padding: 20px 10px;
-      margin: 20px;
+      margin: 20px auto;
       border-radius: 4px;
       background-color: white;
       display: flex;
@@ -70,16 +73,27 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
-        max-width: 270px;
+        // max-width: 270px;
         margin: 0 auto;
         margin-bottom: 20px;
 
+        & div {
+          justify-content: center;
+        }
+
+        label {
+          width: 40%;
+        }
+
+        input {
+          width: 100%;
+        }
+
         .username {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
           align-items: center;
-          width: 100%;
-          
+          width: 100%;          
 
           &-input-container {
             height: 50px;
@@ -106,7 +120,7 @@
 
         .password {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
           align-items: center;
           width: 100%;
 
@@ -133,7 +147,7 @@
 
         .name {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
           align-items: center;
           width: 100%;
 
@@ -143,8 +157,7 @@
             height: 50px;
             align-items: right;
 
-            input {
-              
+            input {              
               min-height: 25px;
               text-indent: 10px;
             }
@@ -160,7 +173,7 @@
 
         .email {          
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
           align-items: center;
           width: 100%;
 
@@ -186,7 +199,7 @@
 
         .phone {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
           align-items: center;
           width: 100%;
 
@@ -213,7 +226,7 @@
 
         .address {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
           align-items: center;
           width: 100%;
 
@@ -240,7 +253,7 @@
 
         .confirm-password {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
           align-items: center;
           width: 100%;
 
@@ -266,8 +279,10 @@
         }
 
         button {
+          margin: 20px auto 0;
+          width: 60vw;
+          max-width: 320px;
           padding: 10px;
-          margin-top: 20px;
           text-transform: uppercase;
           font-weight: 700;
         }
@@ -292,10 +307,39 @@
 }
 
 @media screen and (min-width: 658px) {
-  .home {
+  .register {
 
     &__header {
       background-size: contain;
+    }
+
+    &__user-data {   
+      
+      &-container {
+        max-width: 700px;
+
+        .register__form {
+
+          div {
+            max-width: 80%;
+            margin: 0 auto;
+          }
+
+          label {
+            width: 20vw;
+            max-width: 400px;
+          }
+          input {
+            width: 40vw;
+            max-width: 400px;
+          }
+          button {
+            width: 60vw;
+            max-width: 540px;
+            margin: 20px auto 0;
+          }
+        }
+      }
     }
   }
 }

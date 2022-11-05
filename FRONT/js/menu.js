@@ -55,7 +55,7 @@ const menuPageProductsBuilder = {
       const id = button.target.dataset['id']
       productIdFromMenu = id
 
-      fetch(`${API_URL}/api/order/${id}`).then(response => {
+      fetch(`${API_URL}/api/orders/${id}`).then(response => {
         response.json().then(data => {                
           const productFromMenuID = id
           const productIDJSON = JSON.stringify(productFromMenuID)

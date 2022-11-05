@@ -7,6 +7,12 @@ toggleDropMenu()
 
 function verifyAdmin() {
   const tokenJSON = JSON.parse(localStorage.getItem('token'))
+  if (tokenJSON === null) {
+    document.body.innerHTML = 'Error. Please login first'
+  }
+
+  console.log(tokenJSON[1].token)
+
   const token = tokenJSON[1].token
 
   const body = {
@@ -21,6 +27,7 @@ function verifyAdmin() {
 
   fetch(`${API_URL}/api/admins/access`, header).then(response => {
     response.json().then(data => {
+      console.log(data)
       if (data.message !== 'success') {
         document.body.innerHTML = 'Error 403 Forbidden'
       }
@@ -75,7 +82,6 @@ const buildAdminPage = {
       this.$resetFieldsButton.onclick = self.Events.resetFormFields.bind(this)
     }
 
-    console.log(this.$cancelEditionButton)
 
     if (this.$cancelEditionButton) {
 
@@ -663,11 +669,30 @@ const buildAdminPage = {
       button.preventDefault()
 
       if (button.target.dataset['db'] === 'client') {
-        console.log('clients')
+        
+        document.forms['form'].clientUsername.value = ''
+        document.forms['form'].clientName.value = ''
+        document.forms['form'].clientEmail.value = ''
+        document.forms['form'].clientPhone.value = ''
+        document.forms['form'].clientAddress.value = ''
+        document.forms['form'].clientPassword.value = ''
+
       } else if (button.target.dataset['db'] === 'product') {
-        console.log('products')
+        
+        document.forms['form'].productName.value = ''
+        document.forms['form'].productDescription.value = ''
+        document.forms['form'].productPrice.value = ''
+        document.forms['form'].productPictureUrl.value = ''
+        document.forms['form'].productPromo.value = ''
+        document.forms['form'].productType.value = ''
+
       } else if (button.target.dataset['db'] === 'order') {
-        console.log('orders')
+        
+        document.forms['form'].orderClientID.value = ''
+        document.forms['form'].orderCreationDate.value = ''
+        document.forms['form'].orderTotalValue.value = ''
+        document.forms['form'].orderStatus.value = ''
+
       }
 
     },

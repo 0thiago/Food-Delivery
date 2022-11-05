@@ -1,4 +1,5 @@
 const OrdersModel = require('../models/orders')
+const jwt = require('jsonwebtoken')
 
 async function get(req, res) {
   const { id } = req.params
@@ -10,33 +11,56 @@ async function get(req, res) {
   res.send(orders)
 }
 
+async function status(req, res) {
+  const { clientid } = req.params
+
+  const orders = await OrdersModel.find({ clientID: clientid }).exec(function(err, order){
+    if (err) {
+      res.send({
+        message: `error:`
+      })
+    } else {
+      console.log(order)
+
+      res.send({
+        order
+      })
+    }
+    
+  })
+
+}
+
 async function post(req, res) {
   const {
+    token,
     clientID,
-    productID,
+    productsData,
     creationDate,
+    totalValue,
     status,
   } = req.body
 
   const order = new OrdersModel({
     clientID,
-    productID,
+    productsData,
     creationDate,
+    totalValue,
     status,
   })
 
   order.save()
 
   res.send({
-    message: 'success'
+    message: 'success',
+    order
   })
-
 
 }
 
 async function put(req, res) {
   const { id } = req.params
-  const order = await OrdersModel.findOneAndUpdate({ _id: id}, req.body, { new: true })
+  const order = await OrdersModel.findOneAndUpdate({ _id: id }, req.body, { new: true })
 
   res.send({
     message: 'success',
@@ -55,7 +79,8 @@ async function remove(req, res) {
 }
 
 module.exports = {
-  get, 
+  get,
+  status,
   post,
   put,
   remove,

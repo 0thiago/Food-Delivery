@@ -2,8 +2,17 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
   clientID: String,
-  productID: String,
+  productsData: [
+    {
+      name: String,
+      pictureUrl: String,
+      productID: String,
+      productObs: String,
+      quantity: Number,
+    }
+  ],
   creationDate: String,
+  totalValue: Number,
   status: String,
 })
 

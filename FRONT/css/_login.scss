@@ -6,7 +6,7 @@
   &__header {
     background-image: url('../imgs/banner-login-1920x560.png');
     background-color: var(--primary-color);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
@@ -153,15 +153,6 @@
   }
 }
 
-// @media screen and (min-width: 658px) {
-//   .home {
-
-//     &__header {
-//       background-size: contain;
-//     }
-//   }
-// }
-
 @media screen and (min-width: 640px) {
   .login {
 
@@ -174,3 +165,13 @@
     }
   }
 }
+
+@media screen and (min-width: 658px) {
+  .login {
+
+    &__header {
+      background-size: contain;
+    }
+  }
+}
+

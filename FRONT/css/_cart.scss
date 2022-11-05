@@ -7,7 +7,7 @@
 
   &__header {
     background-image: url('../imgs/banner-cart-1920x560.png');
-    background-size: contain;
+    background-size: cover;
     background-color: var(--primary-color);
     background-position: center;
     background-repeat: no-repeat;
@@ -150,12 +150,14 @@
       padding: 5px 0;
     }
   }
-
-
 }
 
 @media screen and (min-width: 658px) {
   .cart {
+
+    &__header {
+      background-size: contain;
+    }
 
     .cart__products-container {
       margin: 0 auto;

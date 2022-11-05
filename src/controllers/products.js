@@ -10,6 +10,15 @@ async function get(req, res) {
   res.send(products)
 }
 
+async function getByType(req, res) {
+  
+  const { type } = req.params
+
+  const productsByType = await ProductsModel.find({ type }).exec()
+
+  res.send(productsByType)
+}
+
 async function post(req, res) {
   const {
     name, 
@@ -55,6 +64,7 @@ async function remove(req, res) {
 
 module.exports = {
   get,
+  getByType,
   post,
   put,
   remove,

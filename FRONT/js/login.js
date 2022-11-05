@@ -76,7 +76,7 @@ $form.onsubmit = function (event) {
   } else {
     fetch(`${API_URL}/api/login`, header).then(response => {
       response.json().then(data => {
-        if (data.message === 'username or password incorrect') {
+        if (data.message === 'user or password invalid') {
           $incorrectUserOrPass.style.opacity = '1'
           return false
         } else {
@@ -84,13 +84,17 @@ $form.onsubmit = function (event) {
           $incorrectUserOrPass.style.opacity = '0'
 
           const userToken = [
-            { user: data.name },
+            { user: data.user.name },
             { token: data.token }
           ]
-          const tokenJSON = JSON.stringify(userToken)
-          localStorage.setItem('token', tokenJSON)
 
-          alert(`Welcome ${data.name}!`)
+          const userID = data.user._id
+          const tokenJSON = JSON.stringify(userToken)
+          const userIDJSON = JSON.stringify(userID)
+          localStorage.setItem('token', tokenJSON)
+          localStorage.setItem('userID', userIDJSON)
+
+          alert(`Welcome ${data.user.name}!`)
 
           window.location.href = '/index.html'
 

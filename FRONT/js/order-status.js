@@ -11,13 +11,9 @@ toggleDropMenu()
 openCartPage()
 
 const orderPage = {
-
-  products: [],
-
   init: function () {
 
     this.cacheStorage()
-    this.bindEvents()
     this.buildingOrderHtml() 
      
   },
@@ -32,47 +28,31 @@ const orderPage = {
   },
 
   buildingOrderHtml: function () {
-    const orders = JSON.parse(localStorage.getItem('order'))
+    const clientID = JSON.parse(localStorage.getItem('userID'))
 
-    orders.forEach((order) => {
+    fetch(`${API_URL}/api/orders/status/${clientID}`).then(response => response.json().then(data => {
 
-      const self = this
-            
-      fetch(`${API_URL}/api/orders/${order._id}`).then(response => response.json().then(data => {
-
-        console.log(data[0])
-
-        const items = [ data[0] ]        
-
-        items.forEach((item)=>{
-          self.products = item.productsData
-        })
-
-        let orderHTML = `
+      data.order.forEach((order)=>{
+        
+        const orderHTML = `
           <div class="order">
-            <h3>Order ID: <a href=""><span id="orderIDContainer">${data[0]._id}</a></span></h3>
-          <hr>
+            <h3>Order ID: <a href=""><span id="orderIDContainer">${order._id}</a></span></h3>
+            <hr>
             <div class="order__status">
               <p>Status:</p>
-              <p>${data[0].status}</p>
+              <p>${order.status}</p>
             </div> 
-         </div> 
+          </div> 
         `
 
         this.$orderContainer.innerHTML += orderHTML
-        
-        this.cacheStorage()
-        this.bindEvents()
-        this.buildingOrderProductsHtml()
 
-      }))
-    })   
+      })
+
+      this.cacheStorage()
+
+    })).catch(error)    
   },
-
-  buildingOrderProductsHtml: function () {
-    
-  },
-
 }
 
 orderPage.init()

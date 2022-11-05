@@ -14,16 +14,23 @@ function openCartPage() {
 function showProductsAmountOnCart() {
   const cartProducts = JSON.parse(localStorage.getItem('cart'))
 
-  let quantity = 0
+  if (cartProducts === null) {
+    return false
+  } else {
+    let quantity = 0
+  
+    cartProducts.forEach((products)=>{
+      quantity = quantity+products.quantity
+        
+    })
+  
+    const $productsAmountImg = document.querySelector('#productsAmount')
+  
+    $productsAmountImg.innerText = quantity
 
-  cartProducts.forEach((products)=>{
-    quantity = quantity+products.quantity
-      
-  })
 
-  const $productsAmountImg = document.querySelector('#productsAmount')
+  }
 
-  $productsAmountImg.innerText = quantity
 }
 
 function productsCarousel() {
@@ -69,7 +76,7 @@ function getSalesProducts() {
         const salesSectionHtml = data.map(products => 
         `<div class="slider">
           <figure class="home__products-card">
-            <span class="sale-span">SALEa</span>
+            <span class="sale-span">SALE!</span>
             <h3>${products.name}</h3>
             <div class="caption-img-box">
               <div id="productImage" class="product-image" 
@@ -91,8 +98,6 @@ function getSalesProducts() {
           img.draggable = false
         })
 
-        console.log(salesSectionHtml)
-
         salesSectionContainer.innerHTML += salesSectionHtml
 
         $orderButton = document.querySelectorAll('.button')        
@@ -101,7 +106,7 @@ function getSalesProducts() {
           button.onclick = (button) => {
             const id = button.target.dataset['id']
             
-            fetch(`${API_URL}/api/order/${id}`).then(response => {
+            fetch(`${API_URL}/api/orders/${id}`).then(response => {
               response.json().then(data => {                
                 const productFromHomeID = id
                 const productIDJSON = JSON.stringify(productFromHomeID)

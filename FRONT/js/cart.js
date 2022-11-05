@@ -146,9 +146,16 @@ const cartMainFunctions = {
       productsData.push(item)
     })
 
-    console.log(productsData)
-
     const tokenFromLocal = JSON.parse(localStorage.getItem('token'))
+
+    const clientID = JSON.parse(localStorage.getItem('userID'))
+
+    console.log(clientID)
+
+    if (tokenFromLocal === null) {
+      alert('You need to login first')
+      window.location.href = '/login.html'
+    }
 
     const token = tokenFromLocal[1].token
 
@@ -160,6 +167,7 @@ const cartMainFunctions = {
 
     const body = {
       "token": token,
+      "clientID": clientID,
       productsData,
       "creationDate": creationDate,
       "totalValue": totalValue,
@@ -173,7 +181,9 @@ const cartMainFunctions = {
     }
 
     fetch(`${API_URL}/api/orders`, header).then(response => response.json().then(data => {
-      if (data.message === 'success') {    
+      if (data.message === 'success') {  
+        
+        console.log(data)
 
         alert(`Order placed successfully`)
 

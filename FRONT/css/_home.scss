@@ -146,6 +146,7 @@
   .home__reviews-container {
 
     background-color: white;
+    min-height: 125px;
     margin: 10px 0 20px;
     padding: 10px 20px;
     z-index: 1;
@@ -174,15 +175,27 @@
 
 }
 
-//658
+.footer { 
+  display: none;
+}
+
+
+@media screen and (min-width: 658px) {
+  .home {
+
+    &__header {
+      background-size: contain;
+    }
+  }
+}
+
 
 @media screen and (min-width: 1024px) {
 
-  .home__productss, .home__reviewss, .footers  {
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
+  .footer { 
+    display: flex;
   }
+
   
 }
 
