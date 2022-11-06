@@ -44,7 +44,7 @@ async function login(req, res) {
   const user = await ClientsModel.findOne({ username })
   const pass = await ClientsModel.findOne({ password })
 
-  let _id = `${user._id}`
+  let _id = user._id
 
   if (user === null || pass === null) {
     res.send({
