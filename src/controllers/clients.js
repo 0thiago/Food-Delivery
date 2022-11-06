@@ -44,7 +44,9 @@ async function login(req, res) {
   const user = await ClientsModel.findOne({ username })
   const pass = await ClientsModel.findOne({ password })
 
-  let _id = user._id
+  console.log(user)
+
+  let _id
 
   if (user === null || pass === null) {
     res.send({
@@ -53,6 +55,7 @@ async function login(req, res) {
 
     res.status(401).end()
   } else {
+    _id = user._id
 
     const token = jwt.sign({ _id }, SECRET, { expiresIn: 99999999999 })
 
