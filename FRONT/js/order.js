@@ -18,15 +18,12 @@ function buildOrderCard() {
   }
 
   const productID = JSON.parse(productIDJSON)
-
   const $productContainer = document.querySelector('#productContainer')
 
   fetch(`${API_URL}/api/products/${productID}`)
     .then(response => {
       response.json().then(data => {
-
         let cartID = 0
-
         const product = data[0]
 
         const productHTML = data.map(products => `
@@ -65,7 +62,7 @@ function buildOrderCard() {
           window.location.href = '/cart.html'
         }
       })
-    }).catch(error => console.log(Error))
+    }).catch(error => console.log(error))
 }
 
 buildOrderCard()

@@ -51,7 +51,6 @@ const menuPageProductsBuilder = {
   Events: {
 
     goToOrderScreen: function(button){
-      
       const id = button.target.dataset['id']
       productIdFromMenu = id
 

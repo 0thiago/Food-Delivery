@@ -22,6 +22,9 @@
   }
 
   &__product-container {
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.324);
 
     .order__product {
       background-color: white;
@@ -36,6 +39,8 @@
       }
 
       img {
+        width: 50%;
+        margin: 0 auto;
         padding: 10px;
       }
 
@@ -68,9 +73,8 @@
   }
 }
 
-@media screen and (min-width: 658px ) {
+@media screen and (min-width: 658px) {
   .order {
-
     &__header {
       background-size: contain;
     }

@@ -36,31 +36,21 @@ const cartMainFunctions = {
   },
 
   buildCartPage: function () {
-
-    const self = this
-
     const cartProducts = JSON.parse(localStorage.getItem('cart'))
-
     this.newCarto = cartProducts
-
-    let totalValue = 0
-
+    
     cartProducts.forEach((item, index) => {
-
       let prodQuantity = item.quantity
 
       fetch(`${API_URL}/api/products/${item._id}`).then(response => response.json().then(data => {
-
-        
         const $cartContainer = document.querySelector('#cartContainer')
 
         const productHTML = data.map(products => `
             <div id="itemOnTheCart" class="cart__products-item">
-
-            <div class="thumbnail"><img src="${products.pictureUrl}" alt="thumbnail of ${products.name}"></div>
-
+              <div class="thumbnail">
+                <img src="${products.pictureUrl}" alt="thumbnail of ${products.name}">
+              </div>
             <div class="item-data-container">
-
               <div class="item-name-and-price">
                 <p class="name">${products.name}</p>
                 <p id="unitPrice" class="price">$ ${products.price}0</p>
@@ -84,9 +74,7 @@ const cartMainFunctions = {
                   class="remove button">Remove item</button>
                 </div>
               </div>
-
             </div>
-
             </div> 
           `)
 
@@ -96,7 +84,7 @@ const cartMainFunctions = {
         this.bindEvents()
         this.totalValueCalculate()
 
-      })).catch(error => console.log(Error))
+      })).catch(error => console.log(error))
     })
   },
 
@@ -116,7 +104,6 @@ const cartMainFunctions = {
     })
 
     this.$keepButton.onclick = this.Events.backToShopping.bind(this)
-
     this.$finishButton.onclick = this.Events.finishShopping.bind(this)
 
   },
@@ -147,10 +134,7 @@ const cartMainFunctions = {
     })
 
     const tokenFromLocal = JSON.parse(localStorage.getItem('token'))
-
     const clientID = JSON.parse(localStorage.getItem('userID'))
-
-    console.log(clientID)
 
     if (tokenFromLocal === null) {
       alert('You need to login first')
@@ -158,11 +142,8 @@ const cartMainFunctions = {
     }
 
     const token = tokenFromLocal[1].token
-
     const creationDate = new Date().toLocaleString()
-
     const totalValue = this.totalGeral
-
     const status = 'Pending'
 
     const body = {
@@ -182,17 +163,12 @@ const cartMainFunctions = {
 
     fetch(`${API_URL}/api/orders`, header).then(response => response.json().then(data => {
       if (data.message === 'success') {  
-        
-        console.log(data)
-
         alert(`Order placed successfully`)
 
         if (localStorage.getItem('order') === null) {
-
           localStorage.setItem('order', JSON.stringify([data.order]))          
 
         } else {
-
           localStorage.setItem('order', 
           JSON.stringify([
             ...JSON.parse(localStorage.getItem('order')),
@@ -200,7 +176,7 @@ const cartMainFunctions = {
           
         }
 
-        window.location.href = "/order-status.html"
+      window.location.href = "/order-status.html"
       }
     })).catch(error => console.log(error))
   },
@@ -208,16 +184,19 @@ const cartMainFunctions = {
   Events: {
 
     finishShopping: function () {
-
       if (this.$itemOnTheCart) {
         let confirmation = confirm('Finish the order and procceed to payment?')
+
         if (!confirmation) {
           return false
+
         } else {
           this.submitOrder()
+
         }
       } else {
         alert('You need at least one product to finish an order')
+
       }
     },
 
@@ -227,7 +206,6 @@ const cartMainFunctions = {
 
     itemAddOne: function (button) {
       const itemPos = button.target.dataset['position']
-
       button.target.previousElementSibling.innerText++
 
       if (button.target.previousElementSibling.innerText >= 1) {
@@ -235,17 +213,11 @@ const cartMainFunctions = {
       }
 
       let quantity = parseInt(button.target.previousElementSibling.innerText)
-
       this.newCarto[itemPos].quantity = quantity    
-
       const newCartoJSON = JSON.stringify(this.newCarto)
-
       localStorage.setItem('cart', newCartoJSON)
-
       let unitPrice = parseFloat(button.target.dataset['price'])
-
       let unitPriceTotal = unitPrice * quantity
-
       unitPriceTotal = unitPriceTotal.toFixed(2)
 
       button.target.parentElement.parentElement.parentElement.childNodes[1].lastChild.previousSibling.innerText = `$ ${unitPriceTotal}`
@@ -257,32 +229,24 @@ const cartMainFunctions = {
     },
 
     itemRemoveOne: function (button) {
-
       const itemPos = button.target.dataset['position']
 
       if (button.target.nextElementSibling.innerText <= 1) {
-
         button.target.style.opacity = '0.5'
 
       } else {
         button.target.nextElementSibling.innerText--
         button.target.style.opacity = '1'
+
       }
 
       let quantity = parseInt(button.target.nextElementSibling.innerText)
-
       this.newCarto[itemPos].quantity = quantity    
-
       const newCartoJSON = JSON.stringify(this.newCarto)
-
       localStorage.setItem('cart', newCartoJSON)
-
       let unitPrice = parseFloat(button.target.dataset['price'])
-
       let unitPriceTotal = unitPrice * quantity
-
       unitPriceTotal = unitPriceTotal.toFixed(2)
-
       button.target.parentElement.parentElement.parentElement.childNodes[1].lastChild.previousSibling.innerText = `$ ${unitPriceTotal}`
 
       this.bindEvents()
@@ -292,20 +256,10 @@ const cartMainFunctions = {
     },
 
     itemRemove: function (button) {
-      const self = cartMainFunctions
-
-      console.log(button.target.dataset['position'])
-
       const itemPos = button.target.dataset['position']
-
       this.newCarto.splice(itemPos, 1)
-
-      console.log(this.newCarto)
-
       const newCartoJSON = JSON.stringify(this.newCarto)
-
       localStorage.setItem('cart', newCartoJSON)
-
       location.reload()
     }
   }

@@ -28,9 +28,7 @@ function showProductsAmountOnCart() {
   
     $productsAmountImg.innerText = quantity
 
-
   }
-
 }
 
 function productsCarousel() {
@@ -70,7 +68,6 @@ function getSalesProducts() {
   fetch(`${API_URL}/api/products`)
     .then(response => {
       response.json().then(data => {
-
         data = data.filter(products => products.promo === true)
 
         const salesSectionHtml = data.map(products => 
@@ -119,15 +116,12 @@ function getSalesProducts() {
           }
         })
       })
-    }).catch(error => console.log(Error))
+    }).catch(error => console.log(error))
 }
 
 function toggleDropMenu() {
-
   const $burguerMenuButton = document.querySelector('#burguerMenuButton')
-
   const $dropMenu = document.querySelector('#dropMenu')
-
   const $menuItem = document.querySelectorAll('#menuItem')
 
   $burguerMenuButton.addEventListener("click", (e) => {
@@ -138,6 +132,7 @@ function toggleDropMenu() {
     } else {
       $dropMenu.classList.add('show')
       $burguerMenuButton.classList.add('menu-button--active')
+      
     }
   })
 

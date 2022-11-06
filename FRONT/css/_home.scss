@@ -128,12 +128,9 @@
         }
 
         .product-image {
-
           background-position: center;
           background-repeat: no-repeat;
           background-size: contain;
-
-
           min-height: 50px;
           min-width: 160px;
           margin-right: 10px;
@@ -144,7 +141,6 @@
   }
 
   .home__reviews-container {
-
     background-color: white;
     min-height: 125px;
     margin: 10px 0 20px;
@@ -179,7 +175,6 @@
   display: none;
 }
 
-
 @media screen and (min-width: 658px) {
   .home {
 
@@ -189,14 +184,10 @@
   }
 }
 
-
 @media screen and (min-width: 1024px) {
-
   .footer { 
     display: flex;
-  }
-
-  
+  }  
 }
 
 

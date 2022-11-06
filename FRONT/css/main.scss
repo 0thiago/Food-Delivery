@@ -82,13 +82,11 @@ body {
     &:hover {
       cursor: pointer;
     }
-
   }
 
   .menu-button--active {
     border: 3px solid white;
     border-bottom: 10px solid white;
-
   }
 
   .show {
@@ -162,7 +160,6 @@ body {
       font-size: 14px;
       font-weight: 500;
     }
-
   }
 }
 
@@ -174,3 +171,8 @@ body {
 @import 'cart';
 @import 'order-status';
 @import 'admin';
+@import 'edit-profile';
+
+.hidden {
+  display: none;
+}

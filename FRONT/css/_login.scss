@@ -22,6 +22,7 @@
   }
 
   &__auth {
+    opacity: 0;
     &-container {
       min-height: 220px;
       padding: 20px 10px;
@@ -79,6 +80,7 @@
           justify-content: space-between;
           align-items: center;
           width: 100%;
+
           &-input-container {
             height: 50px;
             display: flex;
@@ -151,10 +153,53 @@
       }
     }
   }
+
+  &__already-logged {
+    opacity: 0;
+    &-container {
+      padding: 20px 10px;
+      margin: 20px 20px;
+      border-radius: 4px;
+      background-color: white;
+      display: flex;
+      justify-content: start;
+      align-items: unset;
+      flex-direction: column;
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.341);
+
+      h3 {
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin-left: 10px;
+        list-style-type: disc;
+        padding: 10px;
+
+        li {
+          padding: 5px;
+        }
+      }      
+    }
+  }
 }
 
 @media screen and (min-width: 640px) {
   .login {
+    &__already-logged {
+      &-container {
+        max-width: 584px;
+        margin: 20px auto;
+
+      }
+    }
 
     &__auth {
       &-container {
@@ -168,10 +213,8 @@
 
 @media screen and (min-width: 658px) {
   .login {
-
     &__header {
       background-size: contain;
     }
   }
 }
-

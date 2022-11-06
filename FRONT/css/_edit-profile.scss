@@ -1,0 +1,103 @@
+.edit-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__header {
+    background-image: url('../imgs/banner-login-1920x560.png');
+    background-color: var(--primary-color);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
+    z-index: 1;
+
+    &-container {
+      position: relative;
+      margin-top: 70px;
+      min-height: 120px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__container {
+    width: 80%;
+    max-width: 320px;
+    margin: 10px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.342);
+
+    h3 {
+      padding: 0 10px 10px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      div {
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        input {
+          min-height: 30px;
+          width: 60%;
+        }
+      }
+
+      .buttons {
+        margin-top: 20px;
+        justify-content: space-around;
+        font-weight: 500;
+
+        .confirm {
+          padding: 5px 10px;
+        }
+
+        .reset {
+          padding: 5px 10px;
+          background-color: lightgray;
+          border: 1px solid black;
+          color: black;
+        }
+
+        .cancel {
+          background-color: red;
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 640px) {
+  .edit-profile {
+    &__container {
+      max-width: 584px;
+      margin: 10px auto;
+
+      form {
+        .buttons {
+          width: 60%;
+          margin: 20px auto;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 658px) {
+  .edit-profile {
+
+    &__header {
+      background-size: contain;
+    }
+  }
+}

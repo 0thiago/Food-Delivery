@@ -1,8 +1,6 @@
 const express = require('express')
 const cors = require('cors')
 
-
-
 const db = require('./database/db')
 const routes = require('./routes/routes')
 

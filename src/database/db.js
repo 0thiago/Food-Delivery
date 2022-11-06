@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 
 function connect(){
   mongoose.connect('mongodb://localhost:27017/Food-Delivery')
-
   const db = mongoose.connection
 
   db.once('open', ()=> {

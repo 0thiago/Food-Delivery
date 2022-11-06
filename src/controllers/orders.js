@@ -3,9 +3,7 @@ const jwt = require('jsonwebtoken')
 
 async function get(req, res) {
   const { id } = req.params
-
   const obj = id ? { _id: id } : null
-
   const orders = await OrdersModel.find(obj)
 
   res.send(orders)
@@ -14,7 +12,7 @@ async function get(req, res) {
 async function status(req, res) {
   const { clientid } = req.params
 
-  const orders = await OrdersModel.find({ clientID: clientid }).exec(function(err, order){
+  const orders = OrdersModel.find({ clientID: clientid }).exec(function(err, order){
     if (err) {
       res.send({
         message: `error:`
@@ -26,7 +24,6 @@ async function status(req, res) {
         order
       })
     }
-    
   })
 
 }

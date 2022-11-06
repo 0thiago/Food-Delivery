@@ -4,10 +4,12 @@ const ClientsController = require('../controllers/clients')
 
 router.get('/clients/:id?', ClientsController.get)
 router.post('/clients', ClientsController.post)
+router.post('/clients/check', ClientsController.alreadyLoggedCheck)
 router.put('/clients/:id', ClientsController.put)
 router.delete('/clients/:id', ClientsController.remove)
 
 router.post('/login', ClientsController.login)
+router.post('/logout', ClientsController.logout)
 
 const ProductsController = require('../controllers/products')
 
@@ -24,33 +26,6 @@ router.get('/orders/status/:clientid', OrdersController.status)
 router.post('/orders', OrdersController.post)
 router.put('/orders/:id', OrdersController.put)
 router.delete('/orders/:id', OrdersController.remove)
-
-const AdminsModel = require('../models/admins')
-const jwt = require('jsonwebtoken')
-SECRET = 'fooddelivery'
-
-function verifyAdm(req, res, next){
-  const { token } = req.body
-
-  if(!token) {
-    return res.status(401).send({ auth: false, message: 'Token is missing'})
-  }
-  
-  jwt.verify(token, SECRET, function(err, decoded){
-    if (err) {
-      return res.status(500).send({ auth: false, message: 'Invalid Token'})
-
-    } else {
-      res.send({
-        message: 'success'
-      })
-      const userID = decoded._id
-      console.log(userID+' did this call')
-      next()
-
-    }
-  })
-}
 
 const AdminsController = require('../controllers/admins')
 

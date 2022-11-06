@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="/imgs/favicon-red.png" type="image/x-icon">
+  <title>Food Delivery - Login</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+
+      <a href="index.html"><img src="/imgs/hand-serving-white.png" alt="logo" class="header__logo outline-img"></a>
+
+      <p>Food Delivery</p>
+
+      <div id="cartButton" class="header__chart">
+        <p id="productsAmount">0</p>
+      </div>
+
+      <img src="/imgs/burguer-menu-slim.png" alt="menubar" class="header__burguer-menu" id="burguerMenuButton">
+
+      <nav id="dropMenu" class="header__navmenu">
+        <ul class="header__navmenu-container">
+          <li class="header__navmenu-item"><a class="menuItem" href="index.html">Home</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="menu.html">Menu</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="login.html">Login</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="order-status.html">My Orders</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Reviews</a></li>
+          <li class="header__navmenu-item"><a class="menuItem" href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="edit-profile">
+
+    <section class="edit-profile__header">
+      <div class="edit-profile__header-container">
+      </div>
+    </section>
+
+    <section class="edit-profile__container">
+
+      <h3>WORK IN PROGESS</h3>
+      <h3>Edit Profile</h3>
+
+      <form id="form" action="" class="edit-profile__form">
+        
+        <div class="username-field">
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" value="${item.username}">
+        </div>
+        <div class="name-field">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" value="${item.name}">
+        </div>
+        <div class="email-field">
+          <label for="email">E-mail:</label>
+          <input type="email" name="email" id="email" value="${item.email}">
+        </div>
+        <div class="phone-field">
+          <label for="phone">Phone:</label>
+          <input type="tel" name="phone" id="phone" value="${item.phone}">
+        </div>
+        <div class="address-field">
+          <label for="address">Address:</label>
+          <input type="address" name="address" ,id="address" value="${item.address}">
+        </div>
+        <div class="buttons">
+          <button data-id="${item._id}" data-db="" id="confirmEditionButton" class="confirm button">
+            Confirm
+          </button>
+          <button data-db="" id="resetFieldsButton" class="reset button">
+            Reset
+          </button>
+          <button data-db="" id="cancelEditionButton" class="cancel button">
+            Cancel
+          </button>
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+</body>
+<script type="module" src="js/edit-profile.js"></script>
+
+</html>

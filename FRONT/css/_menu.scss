@@ -9,7 +9,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     box-shadow: 0 0px 6px rgba(0, 0, 0, 0.263);
     z-index: 2;
 
@@ -164,11 +163,9 @@
 
 @media screen and (min-width: 658px) {
   .menu {
-
     &__header {
       background-size: contain;
     }
-
 
     &__products {
 
@@ -185,7 +182,6 @@
         }
       }
 
-
       .container__try {
         width: 100%;
         margin: 0 auto;
@@ -197,12 +193,9 @@
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
-
         max-width: 800px;
 
-
         figure {
-
           max-width: 400px;
           padding: 0 10px 10px;
           margin: 0 auto 20px;
@@ -225,19 +218,14 @@
               }
             }
           }
-
-
         }
       }
-
     }
   }
-
 }
 
 @media screen and (min-width: 914px) {
   .menu {
-
     &__header {
       background-size: contain;
     }
@@ -268,12 +256,9 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: start;
-
         max-width: 900px;
 
-
         figure {
-
           max-width: 400px;
           padding: 0 10px 10px;
           margin: 0 9px 20px;
@@ -296,11 +281,8 @@
               }
             }
           }
-
-
         }
       }
-
     }
   }
 }

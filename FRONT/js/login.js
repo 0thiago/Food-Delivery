@@ -10,8 +10,56 @@ showProductsAmountOnCart()
 openCartPage()
 toggleDropMenu()
 
-function formLogin() {
+function alreadyLoggedCheck() {
 
+  const $loginContainer = document.querySelector('#loginContainer')
+  const $alreadyLoggedContainer = document.querySelector('#alreadyLoggedContainer')
+
+  const tokenFromStorage = JSON.parse(localStorage.getItem('token'))
+
+  if (!tokenFromStorage) {
+    $alreadyLoggedContainer.classList.add('hidden')
+    $loginContainer.style.opacity = '1'
+
+  } else {
+    
+    let tokenStr = tokenFromStorage[1].token 
+  
+    let body = {
+      token: tokenStr
+    }
+  
+    body = JSON.stringify(body)
+  
+    const header = {
+      method: 'POST',
+      body,
+      headers: { 'Content-Type': 'application/json' }
+    }
+  
+    fetch(`${API_URL}/api/clients/check`, header).then(response => {
+      response.json().then(data => {
+        
+        if (data.message === 'user not found') {
+          $alreadyLoggedContainer.classList.add('hidden')
+          $loginContainer.style.opacity = '1'
+        } else {
+          if (data.client) {
+            document.querySelector('#loginTitle').innerText = `Welcome ${data.client.name}`
+          }
+
+          $loginContainer.classList.add('hidden')
+          $alreadyLoggedContainer.style.opacity = '1'
+
+        }
+      })
+    })
+  }
+}
+
+alreadyLoggedCheck()
+
+function formLogin() {
   const $usernameInput = document.querySelector('#username')
   const $passwordInput = document.querySelector('#password')
   const $loginButton = document.querySelector('#loginButton')
@@ -49,7 +97,7 @@ $form.onsubmit = function (event) {
   }
 
   if (document.forms['loginForm'].adminCheckbox.checked) {
-    console.log('nessa rota')
+    
     fetch(`${API_URL}/api/admins`, header).then(response => {
       response.json().then(data => {
         if (data.message === 'username or password incorrect') {
@@ -103,3 +151,20 @@ $form.onsubmit = function (event) {
     })
   }
 }
+
+function logout() {
+  const $logoutButton = document.querySelector('#logoutButton')
+
+  $logoutButton.onclick = (button) => {
+    button.preventDefault()
+    let confirmation = confirm('Do you really want to logout?')
+
+    if(confirmation === true){
+      localStorage.removeItem('token')
+      document.location.reload()
+    }
+  }
+}
+
+logout()
+

@@ -82,7 +82,6 @@ const buildAdminPage = {
       this.$resetFieldsButton.onclick = self.Events.resetFormFields.bind(this)
     }
 
-
     if (this.$cancelEditionButton) {
 
       this.$cancelEditionButton.onclick = self.Events.cancelEdition.bind(this)
@@ -92,9 +91,6 @@ const buildAdminPage = {
   },
 
   showClientList: function () {
-
-    const self = this
-
     fetch(`${API_URL}/api/clients`).then(response => {
       response.json().then(data => {
         data.map(client => {
@@ -121,24 +117,18 @@ const buildAdminPage = {
           `
 
           this.$clientListContainer.innerHTML += clientsListHTML
-
           this.$productListContainer.innerHTML = ''
-
           this.$orderListContainer.innerHTML = ''
 
           this.cacheStorage()
           this.bindEvents()
 
         })
-
       })
-
     })
-
   },
 
   showProductList: function () {
-
     fetch(`${API_URL}/api/products`).then(response => {
       response.json().then(data => {
         data.map(product => {
@@ -170,7 +160,6 @@ const buildAdminPage = {
           this.cacheStorage()
           this.bindEvents()
         })
-
       })
     })
   },
@@ -213,27 +202,16 @@ const buildAdminPage = {
   Events: {
 
     editItem: function (button) {
-
       const db = button.target.dataset['db']
-
-      console.log(db)
-
       const editDialog = button.target.parentElement.parentElement.parentElement.nextElementSibling
-
-      console.log(editDialog)
-
       const itemID = button.target.dataset['id']
 
       editDialog.classList.remove('hidden')
 
       fetch(`${API_URL}/api/${db}s/${itemID}`).then(response => {
-
         response.json().then(data => {
-
           data.map(item => {
-
             if (db === "client") {
-
               const editClientHTML = `
                 <div id="editContainer" class="admin__item-edit">
                   <form id="form" action="">
@@ -286,21 +264,16 @@ const buildAdminPage = {
                   </form>
                 </div>
                 `
+
               this.$editProductContainer.innerHTML = ''
-
               this.$editOrderContainer.innerHTML = ''
-
               this.$editClientContainer.innerHTML = editClientHTML
-
               this.$cancelEditionButton = document.querySelector('#cancelEditionButton')
 
               this.cacheStorage()
               this.bindEvents()
 
-
-
             } else if (db === 'product') {
-
               const editProductHTML = `
                 <div id="editContainer" class="admin__item-edit">
                   <form id="form" action="">
@@ -360,25 +333,15 @@ const buildAdminPage = {
                 </div>
                 `
 
-              console.log(db)
-
               this.$editClientContainer.innerHTML = ''
-
               this.$editOrderContainer.innerHTML = ''
-
               this.$editProductContainer.innerHTML = editProductHTML
-
-              console.log(document.querySelector('#cancelEditionButton'))
-
               this.$cancelEditionButton = document.querySelector('#cancelEditionButton')
-
-              console.log(this.$cancelEditionButton)
 
               this.cacheStorage()
               this.bindEvents()
 
             } else if (db === 'order') {
-
               const editOrderHTML = `
                 <div id="editContainer" class="admin__item-edit">
                   <form id="form" action="">
@@ -437,9 +400,7 @@ const buildAdminPage = {
               `
 
               this.$editClientContainer.innerHTML = ''
-
               this.$editProductContainer.innerHTML = ''
-
               this.$editOrderContainer.innerHTML = editOrderHTML
               let $productDataContainer = document.querySelector('#productDataContainer')
               let pos = 0
@@ -458,15 +419,12 @@ const buildAdminPage = {
 
                 $productDataContainer.innerHTML += productDataHTML
                 pos++
-
-
               })
 
               this.$cancelEditionButton = document.querySelector('#cancelEditionButton')
 
               this.cacheStorage()
               this.bindEvents()
-
 
               let productsData = []
 
@@ -504,14 +462,8 @@ const buildAdminPage = {
 
             }
           }
-
-
         })
-
       })
-
-
-
     },
 
     confirmClientEdition: function (button) {
@@ -595,28 +547,20 @@ const buildAdminPage = {
           }
         })
       })
-
     },
 
     confirmOrderEdition: function (button) {
       button.preventDefault()
 
       const self = buildAdminPage
-
       const orderID = button.target.dataset['id']
-
       const tokenFromStorage = JSON.parse(localStorage.getItem('token'))
-
+      const productsData = JSON.parse(localStorage.getItem('productsDataForOrderChange'))
       const token = tokenFromStorage[1].token
 
       const clientID = document.forms['form'].orderClientID.value
-
-      const productsData = JSON.parse(localStorage.getItem('productsDataForOrderChange'))
-
       const creationDate = document.forms['form'].orderCreationDate.value
-
       const totalValue = document.forms['form'].orderTotalValue.value
-
       const status = document.forms['form'].orderStatus.value
 
       const body = {
@@ -646,7 +590,6 @@ const buildAdminPage = {
           }
         })
       })
-
     },
 
     cancelEdition: function (button) {
@@ -655,8 +598,6 @@ const buildAdminPage = {
       console.log(this.$editContainer.parentElement)
       console.log(button.target)
       console.log(this.$cancelEditionButton)
-
-      const editContainer = button.target.parentElement.parentElement.parentElement.parentElement
 
       this.$editContainer.parentElement.classList.add('hidden')
 
@@ -669,7 +610,6 @@ const buildAdminPage = {
       button.preventDefault()
 
       if (button.target.dataset['db'] === 'client') {
-        
         document.forms['form'].clientUsername.value = ''
         document.forms['form'].clientName.value = ''
         document.forms['form'].clientEmail.value = ''
@@ -678,7 +618,6 @@ const buildAdminPage = {
         document.forms['form'].clientPassword.value = ''
 
       } else if (button.target.dataset['db'] === 'product') {
-        
         document.forms['form'].productName.value = ''
         document.forms['form'].productDescription.value = ''
         document.forms['form'].productPrice.value = ''
@@ -686,20 +625,16 @@ const buildAdminPage = {
         document.forms['form'].productPromo.value = ''
         document.forms['form'].productType.value = ''
 
-      } else if (button.target.dataset['db'] === 'order') {
-        
+      } else if (button.target.dataset['db'] === 'order') { 
         document.forms['form'].orderClientID.value = ''
         document.forms['form'].orderCreationDate.value = ''
         document.forms['form'].orderTotalValue.value = ''
         document.forms['form'].orderStatus.value = ''
 
       }
-
     },
 
     removeItem: function (button) {
-      const self = this
-
       const db = button.target.dataset['db']
       const itemID = button.target.dataset['id']
 
@@ -714,7 +649,6 @@ const buildAdminPage = {
         response.json().then(data => {
           if (data.message === 'success') {
             alert('Item deleted')
-
 
             if (db === 'client') {
               this.$clientListContainer.innerHTML = ''
@@ -741,34 +675,25 @@ const buildAdminPage = {
       const self = this
 
       const itemListContainer = item.target.parentElement.nextElementSibling.nextElementSibling
-
       const searchSelf = item.target.parentElement.nextElementSibling
 
       const clientTitle = item.target.parentElement.parentElement.parentElement.children[0].children[0].firstElementChild
-
       const clientListContainer = item.target.parentElement.parentElement.parentElement.children[0].children[2]
-
       const clientSearch = item.target.parentElement.parentElement.parentElement.children[0].children[1]
 
       const productTitle = item.target.parentElement.parentElement.parentElement.children[1].children[0].firstElementChild
-
       const productListContainer = item.target.parentElement.parentElement.parentElement.children[1].children[2]
-
       const productSearch = item.target.parentElement.parentElement.parentElement.children[1].children[1]
 
       const orderTitle = item.target.parentElement.parentElement.parentElement.children[2].children[0].firstElementChild
-
       const orderListContainer = item.target.parentElement.parentElement.parentElement.children[2].children[2]
-
       const orderSearch = item.target.parentElement.parentElement.parentElement.children[2].children[1]
 
 
       if (itemListContainer.classList.contains('hidden')) {
-
-        itemListContainer.classList.remove('hidden') //show list of items
-        item.target.classList.add('selected') //focus on item
-
-        searchSelf.classList.remove('hidden') //show search div
+        itemListContainer.classList.remove('hidden')
+        item.target.classList.add('selected') 
+        searchSelf.classList.remove('hidden') 
 
         if (item.target.innerText === 'Clients') {
           productListContainer.classList.add('hidden')
@@ -779,8 +704,6 @@ const buildAdminPage = {
           orderSearch.classList.add('hidden')
           self.showClientList()
 
-
-
         } else if (item.target.innerText === 'Products') {
           clientListContainer.classList.add('hidden')
           clientTitle.classList.remove('selected')
@@ -789,8 +712,6 @@ const buildAdminPage = {
           clientSearch.classList.add('hidden')
           orderSearch.classList.add('hidden')
           self.showProductList()
-
-
 
         } else if (item.target.innerText === 'Orders') {
           clientTitle.classList.remove('selected')
@@ -809,10 +730,6 @@ const buildAdminPage = {
         item.target.classList.remove('selected')
 
       }
-
-      // this.cacheStorage()
-      // this.bindEvents()
-
     },
   }
 }

@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: flex-start;
 
-
   &__header {
     background-image: url('../imgs/banner-cart-1920x560.png');
     background-size: cover;
@@ -29,10 +28,7 @@
     flex-direction: column;
     justify-content: flex-start;
 
-
     .cart__products {
-
-
       &-item {
         max-width: 320px;
         margin: 0 auto;
@@ -94,7 +90,6 @@
                 padding: 0 5px;
                 font-weight: 700;
               }
-
             }
 
             .remove-item {
@@ -170,7 +165,7 @@
 
       &-item {
         max-width: none;
-        
+
         .item-data-container {
           padding: 0 35px;
           display: flex;
@@ -199,7 +194,7 @@
             justify-content: center;
             align-items: center;
             gap: 7rem;
-            
+
 
             .item-quantity {
               display: flex;
@@ -225,6 +220,7 @@
 
             .remove-item {
               width: 50%;
+
               .remove {
                 background-color: red;
                 padding: 5px 10px;
@@ -232,7 +228,6 @@
             }
           }
         }
-
       }
     }
 
@@ -248,7 +243,6 @@
         align-items: center;
         justify-content: space-around;
         padding: 10px 0;
-        
 
         .keep {
           max-width: 200px;

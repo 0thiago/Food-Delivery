@@ -581,6 +581,9 @@ body {
   width: 100%;
   text-align: center;
 }
+.login__auth {
+  opacity: 0;
+}
 .login__auth-container {
   min-height: 220px;
   padding: 20px 10px;
@@ -692,8 +695,43 @@ body {
 .login__auth-container .password-rules li {
   font-weight: 400;
 }
+.login__already-logged {
+  opacity: 0;
+}
+.login__already-logged-container {
+  padding: 20px 10px;
+  margin: 20px 20px;
+  border-radius: 4px;
+  background-color: white;
+  display: flex;
+  justify-content: start;
+  align-items: unset;
+  flex-direction: column;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.341);
+}
+.login__already-logged-container h3 {
+  text-align: center;
+}
+.login__already-logged-container p {
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.login__already-logged-container ul {
+  margin-left: 10px;
+  list-style-type: disc;
+  padding: 10px;
+}
+.login__already-logged-container ul li {
+  padding: 5px;
+}
 
 @media screen and (min-width: 640px) {
+  .login__already-logged-container {
+    max-width: 584px;
+    margin: 20px auto;
+  }
   .login__auth-container {
     max-width: 584px;
     margin: 20px auto;
@@ -1000,6 +1038,11 @@ body {
   width: 100%;
   text-align: center;
 }
+.order__product-container {
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.324);
+}
 .order__product-container .order__product {
   background-color: white;
   display: flex;
@@ -1012,6 +1055,8 @@ body {
   padding: 10px;
 }
 .order__product-container .order__product img {
+  width: 50%;
+  margin: 0 auto;
   padding: 10px;
 }
 .order__product-container .order__product-description {
@@ -1688,6 +1733,115 @@ body {
   width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 640px) {
+  .admin__clients {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .admin__clients-list .admin__item-edit {
+    max-width: 900px;
+  }
+  .admin__products {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .admin__products-list .admin__item-edit {
+    max-width: 900px;
+  }
+  .admin__orders {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .admin__orders-list .admin__item-edit {
+    max-width: 900px;
+  }
+}
+.edit-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.edit-profile__header {
+  background-image: url("../imgs/banner-login-1920x560.png");
+  background-color: var(--primary-color);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.263);
+  z-index: 1;
+}
+.edit-profile__header-container {
+  position: relative;
+  margin-top: 70px;
+  min-height: 120px;
+  width: 100%;
+  text-align: center;
+}
+.edit-profile__container {
+  width: 80%;
+  max-width: 320px;
+  margin: 10px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.342);
+}
+.edit-profile__container h3 {
+  padding: 0 10px 10px;
+  text-align: center;
+}
+.edit-profile__container form {
+  display: flex;
+  flex-direction: column;
+}
+.edit-profile__container form div {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.edit-profile__container form div input {
+  min-height: 30px;
+  width: 60%;
+}
+.edit-profile__container form .buttons {
+  margin-top: 20px;
+  justify-content: space-around;
+  font-weight: 500;
+}
+.edit-profile__container form .buttons .confirm {
+  padding: 5px 10px;
+}
+.edit-profile__container form .buttons .reset {
+  padding: 5px 10px;
+  background-color: lightgray;
+  border: 1px solid black;
+  color: black;
+}
+.edit-profile__container form .buttons .cancel {
+  background-color: red;
+  padding: 5px 10px;
+}
+
+@media screen and (min-width: 640px) {
+  .edit-profile__container {
+    max-width: 584px;
+    margin: 10px auto;
+  }
+  .edit-profile__container form .buttons {
+    width: 60%;
+    margin: 20px auto;
+  }
+}
+@media screen and (min-width: 658px) {
+  .edit-profile__header {
+    background-size: contain;
+  }
+}
 .hidden {
   display: none;
 }/*# sourceMappingURL=main.css.map */

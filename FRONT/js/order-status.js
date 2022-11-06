@@ -31,9 +31,7 @@ const orderPage = {
     const clientID = JSON.parse(localStorage.getItem('userID'))
 
     fetch(`${API_URL}/api/orders/status/${clientID}`).then(response => response.json().then(data => {
-
       data.order.forEach((order)=>{
-        
         const orderHTML = `
           <div class="order">
             <h3>Order ID: <a href=""><span id="orderIDContainer">${order._id}</a></span></h3>
@@ -46,11 +44,8 @@ const orderPage = {
         `
 
         this.$orderContainer.innerHTML += orderHTML
-
       })
-
       this.cacheStorage()
-
     })).catch(error)    
   },
 }
