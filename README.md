@@ -88,7 +88,7 @@ I do recommend Postman to test the backend.<br>
 <tr align="center">
 <td> 
 
-https://github.com/0thiago/imgs/blob/main/06-11-2022%2019-53-45.mp4
+![Food-Delivery-Sample](https://user-images.githubusercontent.com/104157930/200201770-0b83fbcc-75cb-4e6d-aff0-5453d9588da8.gif)
 
 </td>
 </tr>
@@ -189,7 +189,7 @@ Eu recomendo o Postman para realizar os tests no Backend.<br>
 <tr align="center">
 <td> 
 
-https://github.com/0thiago/imgs/blob/main/06-11-2022%2019-53-45.mp4
+![Food-Delivery-Sample](https://user-images.githubusercontent.com/104157930/200201770-0b83fbcc-75cb-4e6d-aff0-5453d9588da8.gif)
 
 </td>
 </tr>
