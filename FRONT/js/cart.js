@@ -138,7 +138,7 @@ const cartMainFunctions = {
 
     if (tokenFromLocal === null) {
       alert('You need to login first')
-      window.location.href = '/login.html'
+      window.location.href = 'login.html'
     }
 
     const token = tokenFromLocal[1].token
@@ -176,7 +176,7 @@ const cartMainFunctions = {
           
         }
 
-      window.location.href = "/order-status.html"
+      window.location.href = "order-status.html"
       }
     })).catch(error => console.log(error))
   },
@@ -201,7 +201,7 @@ const cartMainFunctions = {
     },
 
     backToShopping: function () {
-      window.location.href = '/menu.html'
+      window.location.href = 'menu.html'
     },
 
     itemAddOne: function (button) {

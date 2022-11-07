@@ -58,7 +58,7 @@ $form.onsubmit = function(event) {
     response.json().then(data => {
       if (data.message === 'success') {
         alert('User registered successfully! Login now.')
-        window.location.href = '/login.html'
+        window.location.href = 'login.html'
       } else if (data.message === 'e-mail already registered') {
         alert('E-mail already registered, please inform another.')
       } else if (data.message === 'phone already registered') {

@@ -443,7 +443,6 @@ const buildAdminPage = {
               localStorage.setItem('productsDataForOrderChange', productsDataJSON)
 
             }
-
           })
 
           const self = this
@@ -723,7 +722,6 @@ const buildAdminPage = {
           self.showOrdersList()
 
         }
-
       } else {
         itemListContainer.classList.add('hidden')
         searchSelf.classList.add('hidden')

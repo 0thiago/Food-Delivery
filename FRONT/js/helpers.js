@@ -1,4 +1,4 @@
-const API_URL = 'http://192.168.1.5:8080'
+const API_URL = 'http://192.168.3.163:8080'
 
 //trabalho: http://192.168.3.X:8080
 //casa: http://192.168.1.5:8080 
@@ -6,8 +6,8 @@ const API_URL = 'http://192.168.1.5:8080'
 function openCartPage() {
   const $cartButton = document.querySelector('#cartButton')
 
-  $cartButton.onclick = (button) => {
-    window.location.href = '/cart.html'
+  $cartButton.onclick = () => {
+    window.location.href = 'cart.html'
   }
 }
 
@@ -43,7 +43,7 @@ function productsCarousel() {
     this.style.cursor = 'grabbing'
   })
 
-  $wrapper.addEventListener('mouseleave', function (event) {
+  $wrapper.addEventListener('mouseleave', function () {
     pressed = false
   })
 
@@ -109,7 +109,7 @@ function getSalesProducts() {
                 const productIDJSON = JSON.stringify(productFromHomeID)
                 localStorage.setItem('productID', productIDJSON)
 
-                window.location.href = "/order.html"       
+                window.location.href = "order.html"       
               
               })
             }).catch(error => console.log(error))
@@ -124,7 +124,7 @@ function toggleDropMenu() {
   const $dropMenu = document.querySelector('#dropMenu')
   const $menuItem = document.querySelectorAll('#menuItem')
 
-  $burguerMenuButton.addEventListener("click", (e) => {
+  $burguerMenuButton.addEventListener("click", () => {
     if ($dropMenu.classList.contains('show')) {
       $dropMenu.classList.remove('show')
       $burguerMenuButton.classList.remove('menu-button--active')
@@ -227,7 +227,6 @@ function authLogin(username, password) {
   } else {
     return true
   }
-
 
 }
 

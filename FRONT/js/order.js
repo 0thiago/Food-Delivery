@@ -41,7 +41,7 @@ function buildOrderCard() {
         const $addCartButton = document.querySelector('#addCartButton')
         const $observations = document.querySelector('#observations')
 
-        $addCartButton.onclick = (button) => {
+        $addCartButton.onclick = () => {
           const observations = { obs: $observations.value }
           const productObj = {
             observations: observations.obs,
@@ -59,7 +59,7 @@ function buildOrderCard() {
             alert(`${product.name} successfully added to cart`)
           }
 
-          window.location.href = '/cart.html'
+          window.location.href = 'cart.html'
         }
       })
     }).catch(error => console.log(error))

@@ -55,12 +55,12 @@ const menuPageProductsBuilder = {
       productIdFromMenu = id
 
       fetch(`${API_URL}/api/orders/${id}`).then(response => {
-        response.json().then(data => {                
+        response.json().then(() => {                
           const productFromMenuID = id
           const productIDJSON = JSON.stringify(productFromMenuID)
           localStorage.setItem('productID', productIDJSON)
 
-          window.location.href = "/order.html"       
+          window.location.href = "order.html"       
         
         })
       }).catch(error => console.log(error))
@@ -93,7 +93,7 @@ const menuPageProductsBuilder = {
 
         this.cacheSelectores()
         this.bindEvents()
-      })).catch(error => console.log(Error))
+      })).catch(error => console.log(error))
     }
   }
 }

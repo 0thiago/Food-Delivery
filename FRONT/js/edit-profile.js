@@ -14,7 +14,7 @@ function alreadyLoggedCheck() {
   const tokenFromStorage = JSON.parse(localStorage.getItem('token'))
 
   if (!tokenFromStorage) {
-    window.location.href = "/login.html"
+    window.location.href = "login.html"
 
   } else {
     let tokenStr = tokenFromStorage[1].token 
@@ -35,7 +35,7 @@ function alreadyLoggedCheck() {
       response.json().then(data => {
         
         if (data.message === 'user not found') {
-          window.location.href = "/login.html"
+          window.location.href = "login.html"
         } 
       })
     })
@@ -43,28 +43,3 @@ function alreadyLoggedCheck() {
 }
 
 alreadyLoggedCheck()
-
-// const editProfile = {
-//   init: function(){
-
-//     this.cacheStorage()
-//     this.bindEvents()
-
-//   },
-
-//   cacheStorage: function(){
-
-//   },
-
-//   bindEvents: function(){
-
-//   },
-
-//   Events: {
-
-//   }
-// }
-
-// editProfile.init()
-
-

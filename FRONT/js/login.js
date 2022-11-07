@@ -64,7 +64,7 @@ function formLogin() {
   const $passwordInput = document.querySelector('#password')
   const $loginButton = document.querySelector('#loginButton')
 
-  $loginButton.addEventListener("click", (button) => {
+  $loginButton.addEventListener("click", () => {
 
     const username = $usernameInput
     const password = $passwordInput
@@ -116,7 +116,7 @@ $form.onsubmit = function (event) {
 
           alert(`Welcome ${data.name}!`)
 
-          window.location.href = '/admin.html'
+          window.location.href = 'admin.html'
 
         }
       })
@@ -144,7 +144,7 @@ $form.onsubmit = function (event) {
 
           alert(`Welcome ${data.user.name}!`)
 
-          window.location.href = '/index.html'
+          window.location.href = 'index.html'
 
         }
       })

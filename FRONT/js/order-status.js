@@ -14,8 +14,9 @@ const orderPage = {
   init: function () {
 
     this.cacheStorage()
+    this.checkLogin()
     this.buildingOrderHtml() 
-     
+
   },
 
   cacheStorage: function () {
@@ -25,6 +26,14 @@ const orderPage = {
     this.$orderStatus = document.querySelector('#orderStatus')
     this.$orderID = document.querySelector('#orderID')
 
+  },
+
+  checkLogin: function () {
+    const tokenJSON = JSON.parse(localStorage.getItem('token'))
+
+    if (tokenJSON === null) {
+      this.$orderContainer.innerHTML = `You need to login first. <a href="login.html">Login here</a>`
+    }
   },
 
   buildingOrderHtml: function () {
@@ -46,7 +55,7 @@ const orderPage = {
         this.$orderContainer.innerHTML += orderHTML
       })
       this.cacheStorage()
-    })).catch(error)    
+    })).catch(error => console.log(error))    
   },
 }
 

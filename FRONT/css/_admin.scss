@@ -25,7 +25,7 @@
   }
 
   &__clients {
-
+    cursor: pointer;
     &-list {
       border: 2px solid var(--primary-color-light);
 
@@ -149,6 +149,7 @@
   }
 
   &__products {
+    cursor: pointer;
     &-list {
 
       border: 2px solid var(--primary-color-light);
@@ -273,6 +274,7 @@
   }
 
   &__orders {
+    cursor: pointer;
     &-list {
 
       border: 2px solid var(--primary-color-light);

@@ -81,7 +81,7 @@ body {
   justify-content: center;
   flex-direction: column;
   position: absolute;
-  background-image: url("/imgs/cart-100x100.png");
+  background-image: url("../imgs/cart-100x100.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -816,6 +816,7 @@ body {
   justify-content: center;
 }
 .register__user-data-container .register__form label {
+  padding-top: 10px;
   width: 40%;
 }
 .register__user-data-container .register__form input {
@@ -1387,6 +1388,9 @@ body {
   height: 100%;
   border: 2px solid black;
 }
+.admin__clients {
+  cursor: pointer;
+}
 .admin__clients-list {
   border: 2px solid var(--primary-color-light);
 }
@@ -1484,6 +1488,9 @@ body {
 .admin__clients-list .background-container .admin__item-edit form .buttons .cancel {
   background-color: red;
 }
+.admin__products {
+  cursor: pointer;
+}
 .admin__products-list {
   border: 2px solid var(--primary-color-light);
 }
@@ -1578,6 +1585,9 @@ body {
 }
 .admin__products-list .background-container .admin__item-edit form .buttons .cancel {
   background-color: red;
+}
+.admin__orders {
+  cursor: pointer;
 }
 .admin__orders-list {
   border: 2px solid var(--primary-color-light);
