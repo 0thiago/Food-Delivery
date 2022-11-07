@@ -47,7 +47,8 @@ I do recommend Postman to test the backend.<br>
 > - c) Downloading it as zip file
 >  
 > __*Run*__<br>
->You can run the project by opening the index.html on your browser.
+>Connect your DB on MongoDB Compass
+>Run 'npm run dev' on /src folder with Node.js to start Server.<br>
 <br><br><br>
 <a href="#food-delivery">Back to Menu ↑</a>
 </section>
@@ -87,10 +88,25 @@ I do recommend Postman to test the backend.<br>
 <table>
 <tr align="center">
 <td> 
-
-https://www.youtube.com/watch?v=hGdTFtOTN-M  
+  
+https://user-images.githubusercontent.com/104157930/200204476-e3505f38-2c0d-410a-afa2-eeab66bfbe6b.mp4
 
 </td>
+<td>
+
+https://user-images.githubusercontent.com/104157930/200204588-33f04054-f1bd-4b98-a9cc-1cd150217155.mp4
+ 
+</td>
+<td>
+
+https://user-images.githubusercontent.com/104157930/200204955-37fb8fb3-0f75-4919-bcdb-031d553b685e.mp4
+
+</td>
+<td>
+
+https://user-images.githubusercontent.com/104157930/200205052-600963a3-fe08-4ef6-a657-b329e933bcd2.mp4
+  
+</td> 
 </tr>
 </table>
 </div>
@@ -148,9 +164,8 @@ Eu recomendo o Postman para realizar os tests no Backend.<br>
 > - c) Baixando o arquivo completo em .zip
 >
 > __*Execução*__<br>
->Você pode executar o projeto abrindo o arquivo index.html no seu navegador de internet.
-<br><br><br>
-<a href="#em-português">Voltar ao menu principal ↑</a>
+>Conecte sua base de dados usando o MongoDB Compass.<br>
+>Execute o comando 'npm run dev' na pasta /src onde está o server.js com o Node.js pra iniciar o servidor.<br>
 </section>
  
 <section id="#tecnologias-utilizadas">
@@ -188,10 +203,25 @@ Eu recomendo o Postman para realizar os tests no Backend.<br>
 <table>
 <tr align="center">
 <td> 
-
-https://user-images.githubusercontent.com/104157930/200204149-684a9a87-20e8-4d98-b9df-42ab0b9faf74.mp4
+  
+https://user-images.githubusercontent.com/104157930/200204476-e3505f38-2c0d-410a-afa2-eeab66bfbe6b.mp4
 
 </td>
+<td>
+
+https://user-images.githubusercontent.com/104157930/200204588-33f04054-f1bd-4b98-a9cc-1cd150217155.mp4
+ 
+</td>
+<td>
+
+https://user-images.githubusercontent.com/104157930/200204955-37fb8fb3-0f75-4919-bcdb-031d553b685e.mp4
+
+</td>
+<td>
+
+https://user-images.githubusercontent.com/104157930/200205052-600963a3-fe08-4ef6-a657-b329e933bcd2.mp4
+  
+</td>   
 </tr>
 </table>
 </div>
