@@ -47,8 +47,12 @@ I do recommend Postman to test the backend.<br>
 > - c) Downloading it as zip file
 >  
 > __*Run*__<br>
->Connect your DB on MongoDB Compass
->Run 'npm run dev' on /src folder with Node.js to start Server.<br>
+>Connect your DB on MongoDB Compass and create the collections (clients, products, etc)
+>Open the project root folder with command line and type 'npm init -y' to start the Node app
+>On command line type: 'npm i express mogoose cors' to instal those modules
+>On command line type: 'npm install --save-dev nodemon to instal nodemon
+>Run 'npm run dev' on /src folder with command line to start the Server.<br>
+>Open index.html (FRONT folder) on your browser
 <br><br><br>
 <a href="#food-delivery">Back to Menu ↑</a>
 </section>
@@ -164,8 +168,13 @@ Eu recomendo o Postman para realizar os tests no Backend.<br>
 > - c) Baixando o arquivo completo em .zip
 >
 > __*Execução*__<br>
->Conecte sua base de dados usando o MongoDB Compass.<br>
->Execute o comando 'npm run dev' na pasta /src onde está o server.js com o Node.js pra iniciar o servidor.<br>
+
+>Conecte-se no MongoDB Compass e crie as tabelas (clients, products, etc)
+>Abra a pasta raíz do projeto com um progrma de linha de comando e digite: 'npm init -y' pra iniciar uma aplicação Node
+>Na linha de comando digite: 'npm i express mogoose cors' para instalar esses módulos
+>Na linha de comando digite: 'npm install --save-dev nodemon' para instalar o nodemon
+>Execute a linha de comando 'npm run dev' na pasta /src para iniciar o Servidor.<br>
+>Abra o index.html (pasta Front) no navegador.
 </section>
  
 <section id="#tecnologias-utilizadas">
